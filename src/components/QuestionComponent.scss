@@ -1,0 +1,25 @@
+@import "../styles/colours";
+
+.QuestionComponent {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 5px 5px 0px black;
+  width: 80%;
+
+  .question {
+    background-color: $SBpurple;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: black;
+    font-weight: bold;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .answers {
+    margin-top: 10px;
+    padding: 10px;
+  }
+}

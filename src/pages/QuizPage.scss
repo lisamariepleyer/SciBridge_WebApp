@@ -1,0 +1,30 @@
+@import "../styles/colours";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.InfoSide {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.QuestionSide {
+  flex: 1;
+  background-color: $SBgray;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

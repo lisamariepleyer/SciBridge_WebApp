@@ -7,8 +7,8 @@ function HomePage() {
     return (
         <div className="HomePage">
             <div className="button-container">
-                <Link to="/schlicht" className="comic-button">Schlicht</Link>
-                <Link to="/animiert" className="comic-button">Animiert</Link>
+                <Link to="/plain" className="comic-button">Schlicht</Link>
+                <Link to="/feedback" className="comic-button">Feedback</Link>
             </div>
         </div>
     );

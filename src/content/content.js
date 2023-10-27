@@ -24,6 +24,19 @@ const content = [
         question: "Was führt zum Entstehen von antibiotikaresistenten Bakterienpopulationen?",
         answers: [ "Übermäßiger Einsatz von Antibiotika", "Natürliche genetische Variationen", "Einführung neuer Antibiotika", "Durch Antibiotika ausgelöste bakterielle Mutationen" ],
         correctAnswer: 0
+    },
+    {
+        topic: "Genmanipulation",
+        category: "Biologie",
+        paragraph: "Gene-Editing-Technologien wie CRISPR ermöglichen präzise Veränderungen an der DNA eines Organismus. Diese Veränderungen können für verschiedene Zwecke eingesetzt werden, von der Behandlung von Krankheiten bis zur Verbesserung bestimmter Eigenschaften. Es stellen sich jedoch ethische Fragen im Hinblick auf die Möglichkeit des Missbrauchs, z. B. bei der Schaffung von \"Designer-Babys\" oder der versehentlichen Einführung schädlicher Mutationen.",
+        image: "",
+        sources: [
+            { source: "Quelle et al, 2015", link: "" },
+            { source: "Quelle et al, 2015", link: "" }
+        ],
+        question: "Was ist ein wichtiger ethischer Gesichtspunkt bei der Genbearbeitung?",
+        answers: [ "Korrektheit", "Mißbrauch", "Technische Durchführbarkeit", "Biologische Verträglichkeit" ],
+        correctAnswer: 1
     }
 ];
 

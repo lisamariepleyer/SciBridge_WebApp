@@ -1,0 +1,78 @@
+@import "../styles/colours";
+
+.StepperComponent {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 10px #ccc;
+}
+
+.Line {
+  flex: 1;
+  height: 2px;
+  width: 10px;
+  background-color: white;
+  position: relative;
+  z-index: 0;
+}
+
+.Step {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $SBdarkgray;
+  position: relative;
+  z-index: 1;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.null {
+    background-color: $SBdarkgray;
+    color: white;
+  }
+
+  &.true {
+    background-color: $SBgreen;
+    border-color: $SBgreen;
+    color: white;
+  }
+
+  &.false {
+    background-color: $SBred;
+    border-color: $SBred;
+    color: white;
+  }
+}
+
+// Media query for larger screens (e.g., tablets)
+@media (min-width: 768px) {
+  .Line {
+    width: 15px;
+  }
+
+  .Step {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+// Media query for even larger screens (e.g., desktops)
+@media (min-width: 1024px) {
+  .Line {
+    width: 20px;
+  }
+
+  .Step {
+    width: 30px;
+    height: 30px;
+  }
+}

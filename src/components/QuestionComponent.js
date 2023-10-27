@@ -3,7 +3,7 @@ import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
 import checkQuestion from "../common/checkQuestion";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, showFeedback }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, showFeedback }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -23,6 +23,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
             setTopicIndex(topicIndex + 1);
             setSelectedRadioOption(null);
         }
+        areAnswersCorrect[topicIndex] = isCorrect;
     }
 
     return (

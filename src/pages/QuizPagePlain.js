@@ -49,6 +49,8 @@ function QuizPagePlain() {
                     setSelectedAnswer={setSubmittedAnswer}
                     topicIndex={topicIndex}
                     setTopicIndex={setTopicIndex}
+                    areAnswersCorrect={[]}
+                    setAreAnswersCorrect={null}
                     showFeedback={false}
                 />
             </div>

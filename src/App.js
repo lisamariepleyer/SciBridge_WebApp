@@ -4,6 +4,7 @@ import './App.css';
 
 import HomePage from './pages/HomePage';
 import QuizPagePlain from './pages/QuizPagePlain';
+import QuizPageFeedback from "./pages/QuizPageFeedback";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomePage/>} />
                     <Route path='/plain' element={<QuizPagePlain/>} />
+                    <Route path='/feedback' element={<QuizPageFeedback/>} />
                 </Routes>
             </div>
         </Router>

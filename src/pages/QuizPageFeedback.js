@@ -7,7 +7,7 @@ import content from "../content/content";
 
 import "./QuizPage.scss"
 
-function QuizPagePlain() {
+function QuizPageFeedback() {
     let [topicIndex, setTopicIndex] = useState(0);
     let [submittedAnswer, setSubmittedAnswer] = useState(null);
     let [checkedSources, setCheckedSources] = useState(false);
@@ -32,7 +32,7 @@ function QuizPagePlain() {
         <div className="container">
             <div className="InfoSide">
                 <InfoComponent
-                    field={`Frage ${topicIndex + 1}: ${content[topicIndex].category}`}
+                    field={`Frage ${topicIndex + 1}/${content.length}: ${content[topicIndex].category}`}
                     topic={content[topicIndex].topic}
                     topicParagraph={content[topicIndex].paragraph}
                     topicSources={content[topicIndex].sources}
@@ -55,4 +55,4 @@ function QuizPagePlain() {
     );
 }
 
-export default QuizPagePlain;
+export default QuizPageFeedback;

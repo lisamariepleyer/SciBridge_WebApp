@@ -49,6 +49,7 @@ function QuizPageFeedback() {
                     setSelectedAnswer={setSubmittedAnswer}
                     topicIndex={topicIndex}
                     setTopicIndex={setTopicIndex}
+                    showFeedback={true}
                 />
             </div>
         </div>

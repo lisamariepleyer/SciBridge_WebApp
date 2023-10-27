@@ -30,7 +30,7 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
             {showSources &&
                 <div className="sources-paragraph">{
                     topicSources.map((source) => (
-                        <li>
+                        <li style={{listStyleType: "none" }}>
                             <Link to={source.link} target="_blank">{source.source}</Link>
                         </li>
                     ))}

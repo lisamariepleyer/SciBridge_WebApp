@@ -49,6 +49,7 @@ function QuizPagePlain() {
                     setSelectedAnswer={setSubmittedAnswer}
                     topicIndex={topicIndex}
                     setTopicIndex={setTopicIndex}
+                    showFeedback={false}
                 />
             </div>
         </div>

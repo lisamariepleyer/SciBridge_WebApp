@@ -1,19 +1,28 @@
 import React, {useEffect, useState} from "react";
 import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
+import checkQuestion from "../common/checkQuestion";
 
-const QuestionComponent = ({ question, answerOptions, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, showFeedback }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
-    let isCorrect = false;
+    const [isCorrect, setIsCorrect] = useState(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     useEffect(() => {
         setSelectedAnswer(null);
+        setIsCorrect(null);
+        setIsSubmitted(null);
     }, [ question, answerOptions ]);
 
     function handleAnswerSubmission() {
-        setSelectedAnswer(selectedRadioOption);
-        setTopicIndex(topicIndex + 1);
-        setSelectedRadioOption(null);
+        if(!isSubmitted && showFeedback) {
+            setIsCorrect(checkQuestion(selectedRadioOption, answerOptions[correctAnswer]));
+            setIsSubmitted(true);
+        } else {
+            setSelectedAnswer(selectedRadioOption);
+            setTopicIndex(topicIndex + 1);
+            setSelectedRadioOption(null);
+        }
     }
 
     return (
@@ -33,12 +42,13 @@ const QuestionComponent = ({ question, answerOptions, selectedAnswer, setSelecte
                         <label htmlFor={`option-${index}`}>{option}</label>
                     </div>
                 ))}
-                {selectedRadioOption && <button
-                    className="question-submit-button"
-                    onClick={() => handleAnswerSubmission()}
-                >
-                    Senden
-                </button>}
+                {selectedRadioOption &&
+                    <button
+                        className={`question-submit-button ${isCorrect === true ? 'correct' : isCorrect === false ? 'incorrect' : ''}`}
+                        onClick={() => handleAnswerSubmission()}
+                    >
+                        {isSubmitted ? (isCorrect ? 'Correct ' : 'Incorrect ') : 'Senden'}
+                    </button>}
             </div>
         </div>
     );

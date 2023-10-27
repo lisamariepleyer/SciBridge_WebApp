@@ -28,7 +28,6 @@
   padding: 10px 20px;
   font-family: "Menlo", sans-serif;
   font-size: 14px;
-  font-weight: bold;
   color: black;
   cursor: pointer;
   border: 2px solid black;
@@ -36,8 +35,7 @@
   background-color: $SBmiddlegray;
 
   &:hover {
-    background-color: $SBdarkpurple;
-    color: white;
+    font-weight: bold;
   }
 }
 
@@ -49,16 +47,29 @@
   cursor: pointer;
   font-family: "Menlo", sans-serif;
   font-size: 14px;
-  font-weight: bold;
   padding: 10px 20px;
   position: absolute;
   bottom: -20px;
   right: -20px;
   z-index: 2;
 
-
   &:hover {
-    background-color: $SBdarkpurple;
-    color: white;
+    font-weight: bold;
+  }
+
+  &.correct {
+    background-color: $SBgreen;
+
+    &:after {
+      content: "✓";
+    }
+  }
+
+  &.incorrect {
+    background-color: $SBred;
+
+    &:after {
+      content: "✗";
+    }
   }
 }

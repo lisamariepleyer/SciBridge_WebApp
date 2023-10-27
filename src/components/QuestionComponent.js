@@ -1,9 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer }) => {
-    const [selectedOption, setSelectedOption] = useState(null);
+const QuestionComponent = ({ question, answerOptions, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex }) => {
+    const [selectedRadioOption, setSelectedRadioOption] = useState(null);
+    let isCorrect = false;
+
+    useEffect(() => {
+        setSelectedAnswer(null);
+    }, [ question, answerOptions ]);
+
+    function handleAnswerSubmission() {
+        setSelectedAnswer(selectedRadioOption);
+        setTopicIndex(topicIndex + 1);
+        setSelectedRadioOption(null);
+    }
 
     return (
         <div className="QuestionComponent">
@@ -16,12 +27,18 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer }) => {
                             id={`option-${index}`}
                             name="options"
                             value={option}
-                            onChange={() => setSelectedOption(option)}
+                            checked={selectedRadioOption === option}
+                            onChange={() => setSelectedRadioOption(option)}
                         />
                         <label htmlFor={`option-${index}`}>{option}</label>
                     </div>
                 ))}
-                {selectedOption && <button className="question-submit-button">Submit</button>}
+                {selectedRadioOption && <button
+                    className="question-submit-button"
+                    onClick={() => handleAnswerSubmission()}
+                >
+                    Senden
+                </button>}
             </div>
         </div>
     );

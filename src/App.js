@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from './pages/HomePage';
 import QuizPagePlain from './pages/QuizPagePlain';
 import QuizPageFeedback from "./pages/QuizPageFeedback";
+import QuestionnairePage from "./pages/QuestionnairePage";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path='/' element={<HomePage/>} />
                     <Route path='/plain' element={<QuizPagePlain/>} />
                     <Route path='/feedback' element={<QuizPageFeedback/>} />
+                    <Route path='/questionnaire' element={<QuestionnairePage/>} />
                 </Routes>
             </div>
         </Router>

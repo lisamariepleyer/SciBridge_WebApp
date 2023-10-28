@@ -2,11 +2,14 @@ import React, {useEffect, useState} from "react";
 import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
 import checkQuestion from "../common/checkQuestion";
+import {useNavigate} from "react-router-dom";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, showFeedback }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, showFeedback }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    let navigation = useNavigate();
 
     useEffect(() => {
         setSelectedAnswer(null);
@@ -15,15 +18,33 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
     }, [ question, answerOptions ]);
 
     function handleAnswerSubmission() {
+        const correct = checkQuestion(selectedRadioOption, answerOptions[correctAnswer]);
+        setIsCorrect(correct);
+
+        areAnswersCorrect[topicIndex] = correct;
+        setAreAnswersCorrect(areAnswersCorrect);
+
         if(!isSubmitted && showFeedback) {
-            setIsCorrect(checkQuestion(selectedRadioOption, answerOptions[correctAnswer]));
             setIsSubmitted(true);
         } else {
             setSelectedAnswer(selectedRadioOption);
-            setTopicIndex(topicIndex + 1);
+            handleContentLength();
             setSelectedRadioOption(null);
         }
-        areAnswersCorrect[topicIndex] = isCorrect;
+    }
+
+    function handleContentLength() {
+        console.log(topicIndex);
+        if (topicIndex === contentLength-1) {
+            navigation(
+                '/questionnaire', {
+                    state: {
+                        name: "hi",
+                        areAnswersCorrect: areAnswersCorrect.toString()
+                    }});
+        } else {
+            setTopicIndex(topicIndex + 1);
+        }
     }
 
     return (

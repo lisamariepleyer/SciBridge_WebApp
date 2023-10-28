@@ -7,7 +7,6 @@ import StepperComponent from "../components/StepperComponent";
 import content from "../content/content";
 
 import "./QuizPage.scss"
-import checkQuestion from "../common/checkQuestion";
 
 function QuizPageFeedback() {
     let [topicIndex, setTopicIndex] = useState(0);
@@ -27,9 +26,11 @@ function QuizPageFeedback() {
         return checkedSources;
     };
 
-    console.log(`topicIndex: ${topicIndex}`);
-    console.log(`submittedAnswer: ${submittedAnswer}`);
-    console.log(`checkedSources: ${checkedSources}`);
+    //console.log(`You reached ${topicIndex} out of ${content.length} questions`)
+    //console.log(areAnswersCorrect);
+    //console.log(`topicIndex: ${topicIndex}`);
+    //console.log(`submittedAnswer: ${submittedAnswer}`);
+    //console.log(`checkedSources: ${checkedSources}`);
 
     return (
         <div className="container">
@@ -55,6 +56,7 @@ function QuizPageFeedback() {
                     setTopicIndex={setTopicIndex}
                     areAnswersCorrect={areAnswersCorrect}
                     setAreAnswersCorrect={setAreAnswersCorrect}
+                    contentLength={content.length}
                     showFeedback={true}
                 />
             </div>

@@ -40,7 +40,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
                 '/questionnaire', {
                     state: {
                         name: "hi",
-                        areAnswersCorrect: areAnswersCorrect.toString()
+                        areAnswersCorrect: areAnswersCorrect
                     }});
         } else {
             setTopicIndex(topicIndex + 1);

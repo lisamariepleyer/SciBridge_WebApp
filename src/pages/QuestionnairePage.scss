@@ -1,1 +1,51 @@
+@import '../styles/colours';
+@import "../styles/slider";
 
+.QuestionnairePage {
+  background-color: $SBpurple;
+}
+
+body {
+  background-color: $SBpurple;
+}
+
+.info-element {
+  padding: 20px 50px 10px 50px;
+  text-align: center;
+}
+
+.button-element {
+  padding: 20px 50px 50px 50px;
+  text-align: center;
+}
+
+.questionnaire-element {
+  padding: 10px 20px;
+  max-width: 50%;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 10px 10px 10px #999;
+}
+
+.slider-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .topic {
+    width: 40%;
+    padding-right: 20px;
+  }
+
+  .slider {
+    width: 50%;
+    padding-right: 20px;
+  }
+
+  .knowledge {
+    font-weight: bold;
+    width: 10%;
+  }
+}

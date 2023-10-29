@@ -1,0 +1,43 @@
+@import "colours";
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 25px 0;
+  height: 10px;
+  background: linear-gradient(to right, #e0e0e0 33%, #e0e0e0 33%, #e0e0e0 33%); /* Three segments */
+  border-radius: 5px;
+  outline: none;
+
+  /* Thumb styles */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px; /* Slightly larger thumb for better grip */
+    height: 30px;
+    background-color: $SBpurple;
+    border: 2px solid $SBdarkpurple; /* Border to make the thumb stand out */
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    cursor: pointer;
+    transition: transform 0.2s; /* Pop effect on hover */
+
+    &:hover {
+      transform: scale(1.1); /* Slightly enlarge thumb on hover */
+    }
+  }
+
+  &::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background-color: $SBpurple;
+    border: 2px solid $SBdarkpurple;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

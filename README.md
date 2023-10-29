@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# SciBridge
+
+![SciBridge Logo](public/logo192.png)
+
+## Overview
+
+This project aims to empirically test the impact of different presentation formats, including plain text and a combination of text with visual aids and user feedback, on user comprehension and engagement of scientific concepts on the web.
+
+## Features
+
+- quiz in plain text, without animations and user feedback
+- quiz with user feedback
+  - reporting to the user whether a question was answered correctly
+  - visually representing quiz statistics
+  - TODO: including visual aids and animations
+- questionnaire to obtain the user's personal info
+- TODO: persist quiz and questionnaire answers
+
+## Contributing
+
+While this is primarily an academic project, I welcome any feedback, bug reports, or feature requests. Feel free to open an issue or submit a pull request!
+
+## Deployment
+
+The application of my Master's Thesis project is deployed using GitHub pages and accessible to the public. You can experience the application live at:
+
+[SciHub](https://lisamariepleyer.github.io/SciBridge_WebApp/)
+
+If you encounter any issues while accessing the live app, please report them via the repository's issue tracker.
+
+## Acknowledgement
+
+### Advisor
+This project is part of my Master's Thesis for the programme "Software Design and Engineering" at Fachhochschule Campus Wien.
+
+### Inspiration
+- Stepper component design inspired by [devNimi](https://github.com/devNimi/stepper-component)
+- Quiz component design inspired by [Instagram](https://www.instagram.com) Quiz Sticker
+
+### Libraries and Tools
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

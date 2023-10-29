@@ -25,6 +25,8 @@ function QuestionnairePage() {
     const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];
     const yesOrNo = ['Ja', 'Nein'];
 
+    const [age, setAge] = useState(1)
+
     function countCorrectAnswers() {
         return areAnswersCorrect.filter(Boolean).length;
     }
@@ -36,9 +38,14 @@ function QuestionnairePage() {
         }));
     };
 
+    const handleAgeChange = (value) => {
+        setAge(value);
+    };
+
     console.log(ageGroup);
     console.log(hasUsedSources);
     console.log(hasUsedGoogle);
+    console.log(age);
 
     return (
         <div className="QuestionnairePage">
@@ -50,52 +57,6 @@ function QuestionnairePage() {
             </div>
 
             <div>
-                <div className="questionnaire-element">
-                    <h3>Wie alt bist du?</h3>
-                    {ageGroups.map((option, index) => (
-                        <div className="radio-option" key={index}>
-                            <input
-                                type="radio"
-                                id={`ageOptions-${index}`}
-                                name="ageOptions"
-                                value={option}
-                                checked={ageGroup === option}
-                                onChange={() => setAgeGroup(option)}
-                            />
-                            <label htmlFor={`ageOptions-${index}`}>{option}</label>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="questionnaire-element">
-                    <h3>Bewerte deine Vorkenntnisse in den folgenden Bereichen:</h3>
-                    <ol>
-                        <li>ich habe keine Vorkenntnisse</li>
-                        <li>ich habe davon gehört, aber nie Zeit in eine Recherche investiert</li>
-                        <li>ich habe mich mit dem Thema bereits intensiv beschäftigt</li>
-                    </ol>
-                    {Object.keys(knowledge).map(topic => (
-                        <div className="slider-element" key={topic}>
-                            <div className="topic">
-                                <label>{topic}</label>
-                            </div>
-                            <div className="slider">
-                                <input
-                                    type="range"
-                                    min="1"
-                                    max="3"
-                                    step="1"
-                                    value={knowledge[topic]}
-                                    onChange={e => handleKnowledgeChange(topic, e.target.value)}
-                                />
-                            </div>
-                            <div className="knowledge">
-                                <span>{knowledge[topic]}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
                 <div className="questionnaire-element">
                     <h3>Hast du die angegebenen Quellen verwendet?</h3>
                     {yesOrNo.map((option, index) => (
@@ -130,8 +91,73 @@ function QuestionnairePage() {
                     ))}
                 </div>
 
+                <div className="questionnaire-element">
+                    <h3>Wie alt bist du?</h3>
+                    <div className="age-slider-element">
+                        <div className="slider">
+                            <input
+                                type="range"
+                                min="1"
+                                max="100"
+                                step="1"
+                                value={age}
+                                onChange={e => handleAgeChange(e.target.value)}
+                            />
+                        </div>
+                        <div className="knowledge">
+                            <span>{age}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="questionnaire-element">
+                    <h3>Wie alt bist du?</h3>
+                    {ageGroups.map((option, index) => (
+                        <div className="radio-option" key={index}>
+                            <input
+                                type="radio"
+                                id={`ageOptions-${index}`}
+                                name="ageOptions"
+                                value={option}
+                                checked={ageGroup === option}
+                                onChange={() => setAgeGroup(option)}
+                            />
+                            <label htmlFor={`ageOptions-${index}`}>{option}</label>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="questionnaire-element">
+                    <h3>Bewerte deine Vorkenntnisse in den folgenden Bereichen:</h3>
+                    <ol>
+                        <li>ich habe keine Vorkenntnisse</li>
+                        <li>ich habe davon gehört, aber nie Zeit in eine Recherche investiert</li>
+                        <li>ich habe mich mit dem Thema bereits intensiv beschäftigt</li>
+                    </ol>
+                    {Object.keys(knowledge).map(topic => (
+                        <div className="knowledge-slider-element" key={topic}>
+                            <div className="topic">
+                                <label>{topic}</label>
+                            </div>
+                            <div className="slider">
+                                <input
+                                    type="range"
+                                    min="1"
+                                    max="3"
+                                    step="1"
+                                    value={knowledge[topic]}
+                                    onChange={e => handleKnowledgeChange(topic, e.target.value)}
+                                />
+                            </div>
+                            <div className="knowledge">
+                                <span>{knowledge[topic]}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
                 <div className="button-element">
-                    <button className={"comic-button"} onClick={() => console.log({ ageGroup, knowledge, usedSources: hasUsedSources, googledInfo: hasUsedGoogle })}>
+                    <button className={"comic-button"} onClick={() => console.log({ ageGroup, knowledge, usedSources: hasUsedSources, googledInfo: hasUsedGoogle, age })}>
                         Ende
                     </button>
                 </div>

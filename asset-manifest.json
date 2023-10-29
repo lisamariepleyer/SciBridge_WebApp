@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SciBridge_WebApp/static/css/main.29c7b78c.css",
-    "main.js": "/SciBridge_WebApp/static/js/main.d28388be.js",
-    "static/js/787.208c67df.chunk.js": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js",
-    "index.html": "/SciBridge_WebApp/index.html",
-    "main.29c7b78c.css.map": "/SciBridge_WebApp/static/css/main.29c7b78c.css.map",
-    "main.d28388be.js.map": "/SciBridge_WebApp/static/js/main.d28388be.js.map",
-    "787.208c67df.chunk.js.map": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js.map"
+    "main.css": "/static/css/main.29c7b78c.css",
+    "main.js": "/static/js/main.c4166720.js",
+    "static/js/787.208c67df.chunk.js": "/static/js/787.208c67df.chunk.js",
+    "index.html": "/index.html",
+    "main.29c7b78c.css.map": "/static/css/main.29c7b78c.css.map",
+    "main.c4166720.js.map": "/static/js/main.c4166720.js.map",
+    "787.208c67df.chunk.js.map": "/static/js/787.208c67df.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29c7b78c.css",
-    "static/js/main.d28388be.js"
+    "static/js/main.c4166720.js"
   ]
 }

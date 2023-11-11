@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/SciBridge_WebApp/static/css/main.29c7b78c.css",
-    "main.js": "/SciBridge_WebApp/static/js/main.710e02c3.js",
+    "main.js": "/SciBridge_WebApp/static/js/main.4cbf8c65.js",
     "static/js/787.208c67df.chunk.js": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js",
     "index.html": "/SciBridge_WebApp/index.html",
     "main.29c7b78c.css.map": "/SciBridge_WebApp/static/css/main.29c7b78c.css.map",
-    "main.710e02c3.js.map": "/SciBridge_WebApp/static/js/main.710e02c3.js.map",
+    "main.4cbf8c65.js.map": "/SciBridge_WebApp/static/js/main.4cbf8c65.js.map",
     "787.208c67df.chunk.js.map": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29c7b78c.css",
-    "static/js/main.710e02c3.js"
+    "static/js/main.4cbf8c65.js"
   ]
 }

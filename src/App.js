@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import HomePage from './pages/HomePage';
@@ -9,16 +9,14 @@ import QuestionnairePage from "./pages/QuestionnairePage";
 
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    <Route path='/' element={<HomePage/>} />
-                    <Route path='/plain' element={<QuizPagePlain/>} />
-                    <Route path='/feedback' element={<QuizPageFeedback/>} />
-                    <Route path='/questionnaire' element={<QuestionnairePage/>} />
-                </Routes>
-            </div>
-        </Router>
+        <div className="App">
+            <Routes>
+                <Route path='/SciBridge_WebApp' element={<HomePage/>} />
+                <Route path='/SciBridge_WebApp/plain' element={<QuizPagePlain/>} />
+                <Route path='/SciBridge_WebApp/feedback' element={<QuizPageFeedback/>} />
+                <Route path='/SciBridge_WebApp/questionnaire' element={<QuestionnairePage/>} />
+            </Routes>
+        </div>
     );
 }
 

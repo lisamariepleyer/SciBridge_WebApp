@@ -7,8 +7,8 @@ function HomePage() {
     return (
         <div className="HomePage">
             <div className="button-container">
-                <Link to="/plain" className="comic-button">Schlicht</Link>
-                <Link to="/feedback" className="comic-button">Feedback</Link>
+                <Link to="/SciBridge_WebApp/plain" className="comic-button">Schlicht</Link>
+                <Link to="/SciBridge_WebApp/feedback" className="comic-button">Feedback</Link>
             </div>
         </div>
     );

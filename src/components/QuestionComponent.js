@@ -37,7 +37,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
         console.log(topicIndex);
         if (topicIndex === contentLength-1) {
             navigation(
-                '/questionnaire', {
+                '/SciBridge_WebApp/questionnaire', {
                     state: {
                         name: "hi",
                         areAnswersCorrect: areAnswersCorrect

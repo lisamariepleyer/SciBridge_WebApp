@@ -39,7 +39,6 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
             navigation(
                 '/questionnaire', {
                     state: {
-                        name: "hi",
                         areAnswersCorrect: areAnswersCorrect
                     }});
         } else {
@@ -69,7 +68,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
                         className={`question-submit-button ${isCorrect === true ? 'correct' : isCorrect === false ? 'incorrect' : ''}`}
                         onClick={() => handleAnswerSubmission()}
                     >
-                        {isSubmitted ? (isCorrect ? 'Correct ' : 'Incorrect ') : 'Senden'}
+                        {isSubmitted ? (isCorrect ? 'Richtig ' : 'Falsch ') : 'Senden'}
                     </button>}
             </div>
         </div>

@@ -8,8 +8,8 @@ import "../styles/radiooptions.scss";
 import "./QuestionnairePage.scss";
 
 function QuestionnairePage() {
-    //const location = useLocation();
-    //const areAnswersCorrect = location.state.areAnswersCorrect;
+    const location = useLocation();
+    const areAnswersCorrect = location.state.areAnswersCorrect; //[false, true, false]
 
     const [ageGroup, setAgeGroup] = useState('');
     const [hasUsedSources, setHasUsedSources] = useState('');
@@ -21,7 +21,6 @@ function QuestionnairePage() {
         'Climate Change': 1
     });
 
-    const areAnswersCorrect = [false, true, false]
     const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];
     const yesOrNo = ['Ja', 'Nein'];
 

@@ -11,10 +11,10 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path='/SciBridge_WebApp' element={<HomePage/>} />
-                <Route path='/SciBridge_WebApp/plain' element={<QuizPagePlain/>} />
-                <Route path='/SciBridge_WebApp/feedback' element={<QuizPageFeedback/>} />
-                <Route path='/SciBridge_WebApp/questionnaire' element={<QuestionnairePage/>} />
+                <Route path='/' element={<HomePage/>} />
+                <Route path='/plain' element={<QuizPagePlain/>} />
+                <Route path='/feedback' element={<QuizPageFeedback/>} />
+                <Route path='/questionnaire' element={<QuestionnairePage/>} />
             </Routes>
         </div>
     );

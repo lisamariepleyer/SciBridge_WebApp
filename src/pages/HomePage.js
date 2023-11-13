@@ -5,8 +5,12 @@ import '../styles/buttons.scss'
 import logo from '../content/logo.png';
 
 function HomePage() {
+    const [showQuizButton, setShowQuizButton] = useState(false);
+    const [dataProtectionButtonText, setDataProtectionButtonText] = useState("Ich stimme zu");
+
     let navigation = useNavigate();
     let infoContainerRef = useRef(null);
+    let dataProtectionContainerRef = useRef(null);
 
     const redirectToRandomPageStyling = () => {
         const randomInt = Math.floor(Math.random() * 2);
@@ -19,12 +23,30 @@ function HomePage() {
     };
 
     const scrollToInfoContainer = () => {
-        console.log("I am scrolling")
         infoContainerRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
+    const scrollToDataProtectionContainer = () => {
+        dataProtectionContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const showStartQuizButton = () => {
+        setShowQuizButton(!showQuizButton);
+
+        if (dataProtectionButtonText === "Ich stimme zu") {
+            setDataProtectionButtonText("✔︎")
+        } else {
+            setDataProtectionButtonText("Ich stimme zu")
+        }
+    };
+
     return (
         <div className="HomePage">
+
+            <div className="button-container">
+                <Link to="/plain">Schlicht</Link>
+                <Link to="/feedback">Feedback</Link>
+            </div>
 
             <div className="welcome-container">
                 <div className="welcome-element">
@@ -37,15 +59,15 @@ function HomePage() {
                 <div className="button-container">
                     <button
                         className="comic-button"
-                        onClick={() => redirectToRandomPageStyling()}
+                        onClick={() => scrollToDataProtectionContainer()}
                     >
-                        Ich möchte teilnehmen!
+                        Ich möchte teilnehmen
                     </button>
                     <button
                         className="comic-button"
                         onClick={() => scrollToInfoContainer()}
                     >
-                        Erzähl mir mehr ...
+                        Erzähl mir mehr
                     </button>
                 </div>
             </div>
@@ -114,15 +136,80 @@ function HomePage() {
 
                 <button
                     className="comic-button"
-                    onClick={() => redirectToRandomPageStyling()}
+                    onClick={() => scrollToDataProtectionContainer()}
                 >
-                    Ich möchte teilnehmen!
+                    Ich möchte teilnehmen
                 </button>
             </div>
 
-            <div className="button-container">
-                <Link to="/plain">Schlicht</Link>
-                <Link to="/feedback">Feedback</Link>
+            <div className="info-container" ref={dataProtectionContainerRef}>
+                <div className="info-element">
+                    <h2>
+                        Einwilligung zur anonymen Speicherung von Quiz- und Fragebogenantworten
+                    </h2>
+                    <p>
+                        Bevor Sie beginnen, möchten wir Sie über die Datenverarbeitungspraktiken dieses Quiz informieren, in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO) der Europäischen Union und den österreichischen Datenschutzgesetzen.
+                    </p>
+                </div>
+
+                <div className="info-element">
+                    <h3>
+                        1. Anonymität und Datennutzung:
+                    </h3>
+                    <p>
+                        Ihre Teilnahme an diesem Quiz und dem anschließenden Fragebogen ist vollkommen freiwillig. Indem Sie fortfahren, erklären Sie sich damit einverstanden, dass Ihre Antworten auf die Quizfragen und den Fragebogen, einschließlich Ihres Alters, Ihres Vorwissens und Ihrer Erfahrungen während des Quiz, anonym gespeichert und analysiert werden. Wir versichern Ihnen, dass Ihre Antworten ausschließlich zu akademischen Zwecken verwendet werden, speziell im Zusammenhang mit der Forschung für eine Masterarbeit.
+                    </p>
+                </div>
+
+                <div className="info-element">
+                    <h3>
+                        2. Datenspeicherung und -schutz:
+                    </h3>
+                    <p>
+                        Alle gesammelten Daten werden sicher gespeichert und enthalten keine persönlich identifizierbaren Informationen. Unsere Verfahren zur Datenspeicherung und -verarbeitung sind darauf ausgelegt, höchste Standards an Privatsphäre und Datensicherheit zu wahren, im Einklang mit der DSGVO und den österreichischen Datenschutzvorschriften.
+                    </p>
+                </div>
+
+                <div className="info-element">
+                    <h3>
+                        3. Recht auf Widerruf:
+                    </h3>
+                    <p>
+                        Sie haben das Recht, das Quiz jederzeit ohne negative Konsequenzen zu verlassen. Sollten Sie sich für einen Rückzug entscheiden, werden Ihre bis zu diesem Zeitpunkt gesammelten Daten nicht in der Studie verwendet.
+                    </p>
+                </div>
+
+                <div className="info-element">
+                    <h3>
+                        4. Kontaktinformationen:
+                    </h3>
+                    <p>
+                        Wenn Sie Fragen zur Handhabung Ihrer Daten oder Ihren Rechten gemäß der DSGVO haben, zögern Sie bitte nicht, [TODO] zu kontaktieren.
+                    </p>
+                </div>
+
+                <div className="info-element">
+                    <p>
+                        Indem Sie unten auf "Ich stimme zu" klicken, bestätigen Sie, dass Sie diese Informationen gelesen und verstanden haben und der anonymen Speicherung und Verwendung Ihrer Antworten für akademische Forschungszwecke zustimmen.
+                    </p>
+
+                    <div className="button-container">
+                        <button
+                            className="comic-button"
+                            onClick={() => showStartQuizButton()}
+                        >
+                            {dataProtectionButtonText}
+                        </button>
+                        {showQuizButton && (
+                            <button
+                                className="comic-button"
+                                onClick={() => redirectToRandomPageStyling()}
+                            >
+                                Starte das Quiz
+                            </button>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

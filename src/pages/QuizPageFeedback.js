@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useLocation} from "react-router";
 
 import InfoComponent from "../components/InfoComponent";
 import QuestionComponent from "../components/QuestionComponent";
@@ -9,6 +10,9 @@ import content from "../content/content";
 import "./QuizPage.scss"
 
 function QuizPageFeedback() {
+    const location = useLocation();
+    const uuid = location.state.uuid;
+
     let [topicIndex, setTopicIndex] = useState(0);
     let [submittedAnswer, setSubmittedAnswer] = useState(null);
     let [checkedSources, setCheckedSources] = useState(false);
@@ -25,12 +29,6 @@ function QuizPageFeedback() {
     const getCheckedSources = () => {
         return checkedSources;
     };
-
-    //console.log(`You reached ${topicIndex} out of ${content.length} questions`)
-    //console.log(areAnswersCorrect);
-    //console.log(`topicIndex: ${topicIndex}`);
-    //console.log(`submittedAnswer: ${submittedAnswer}`);
-    //console.log(`checkedSources: ${checkedSources}`);
 
     return (
         <div className="container">
@@ -58,6 +56,7 @@ function QuizPageFeedback() {
                     setAreAnswersCorrect={setAreAnswersCorrect}
                     contentLength={content.length}
                     showFeedback={true}
+                    uuid={uuid}
                 />
             </div>
         </div>

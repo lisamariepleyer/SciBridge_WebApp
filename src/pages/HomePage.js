@@ -1,24 +1,31 @@
 import React, {useState, useRef} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+
 import './HomePage.scss';
 import '../styles/buttons.scss'
+
 import logo from '../content/logo.png';
 
 function HomePage() {
     const [showQuizButton, setShowQuizButton] = useState(false);
     const [dataProtectionButtonText, setDataProtectionButtonText] = useState("Ich stimme zu");
+    const [uuid, setUuid] = useState(null);
 
     let navigation = useNavigate();
     let infoContainerRef = useRef(null);
     let dataProtectionContainerRef = useRef(null);
 
-    const redirectToRandomPageStyling = () => {
+    const redirectToQuiz = () => {
         const randomInt = Math.floor(Math.random() * 2);
 
+        const uuid = uuidv4();
+        console.log(uuid);
+
         if (randomInt === 0) {
-            navigation('/plain');
+            navigation('/plain', { state: { uuid } });
         } else {
-            navigation('/feedback');
+            navigation('/feedback', { state: { uuid } });
         }
     };
 
@@ -203,7 +210,7 @@ function HomePage() {
                         {showQuizButton && (
                             <button
                                 className="comic-button"
-                                onClick={() => redirectToRandomPageStyling()}
+                                onClick={() => redirectToQuiz()}
                             >
                                 Starte das Quiz
                             </button>

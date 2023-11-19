@@ -10,6 +10,7 @@ import "./QuestionnairePage.scss";
 function QuestionnairePage() {
     const location = useLocation();
     const areAnswersCorrect = location.state.areAnswersCorrect; //[false, true, false]
+    const uuid = location.state.uuid;
 
     const [ageGroup, setAgeGroup] = useState('');
     const [hasUsedSources, setHasUsedSources] = useState('');

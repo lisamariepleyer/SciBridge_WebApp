@@ -4,7 +4,7 @@ import "../styles/radiooptions.scss";
 import checkQuestion from "../common/checkQuestion";
 import {useNavigate} from "react-router-dom";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, showFeedback }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, showFeedback, uuid }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,7 +39,8 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
             navigation(
                 '/questionnaire', {
                     state: {
-                        areAnswersCorrect: areAnswersCorrect
+                        areAnswersCorrect: areAnswersCorrect,
+                        uuid: uuid
                     }});
         } else {
             setTopicIndex(topicIndex + 1);

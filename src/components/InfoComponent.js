@@ -24,7 +24,7 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
                 <button className="default-button"
                         onClick={() => handleShowSources()}
                 >
-                    Quellen
+                    Weiterführende Informationen
                 </button>
             </div>
             {showSources &&

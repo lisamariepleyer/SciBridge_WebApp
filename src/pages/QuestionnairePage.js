@@ -68,7 +68,7 @@ function QuestionnairePage() {
                 </div>
 
                 <div className="questionnaire-element">
-                    <h3>Hast du die angegebenen Quellen verwendet?</h3>
+                    <h3>Hast du die angegebenen weiterführenden Links verwendet?</h3>
                     {yesOrNo.map((option, index) => (
                         <div className="radio-option" key={index}>
                             <input
@@ -131,7 +131,7 @@ function QuestionnairePage() {
                 </div>
 
                 <div className="button-element">
-                    <button className={"comic-button"} onClick={() => console.log({ ageGroup, knowledge, usedSources: hasUsedSources, googledInfo: hasUsedGoogle })}>
+                    <button className={"comic-button"} onClick={() => console.log({ uuid, ageGroup, knowledge, usedSources: hasUsedSources, googledInfo: hasUsedGoogle })}>
                         Ende
                     </button>
                 </div>

@@ -49,12 +49,6 @@ function HomePage() {
 
     return (
         <div className="HomePage">
-
-            <div className="button-container">
-                <Link to="/plain">Schlicht</Link>
-                <Link to="/feedback">Feedback</Link>
-            </div>
-
             <div className="welcome-container">
                 <div className="welcome-element">
                     <img src={logo} alt="SciBridge Logo" />
@@ -100,10 +94,10 @@ function HomePage() {
 
                 <div className="info-element">
                     <h3>
-                        Googeln ist erlaubt!
+                        Googlen ist erlaubt!
                     </h3>
                     <p>
-                        Ja, du hast richtig gelesen! Googeln während des Quiz ist absolut in Ordnung. Tatsächlich ist es sogar erwünscht! Dieses Quiz ist so konzipiert, dass du dich mit wissenschaftlichen Themen auseinandersetzt, deine Neugier weckst und vielleicht sogar mehr entdeckst, als gefragt wird. Also zögere nicht, in den Ozean des Internets einzutauchen, während du antwortest.
+                        Ja, du hast richtig gelesen! Google während des Quiz zu benutzen ist absolut in Ordnung. Tatsächlich ist es sogar erwünscht! Dieses Quiz ist so konzipiert, dass du dich mit wissenschaftlichen Themen auseinandersetzt, deine Neugier weckst und vielleicht sogar mehr entdeckst, als gefragt wird. Also zögere nicht, in den Ozean des Internets einzutauchen, während du antwortest.
                     </p>
                 </div>
 

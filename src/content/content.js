@@ -1,7 +1,7 @@
 const content = [
     {
         topic: "Mechanismus der Impfung",
-        category: "Naturwissenschaften",
+        category: "Medizin",
         paragraph: "Impfstoffe funktionieren, indem sie eine harmlose Form des Krankheitserregers - oder Elemente davon, wie Proteine oder genetisches Material - in den Körper einbringen. Diese Exposition veranlasst das Immunsystem, spezielle Proteine, die so genannten Antikörper, zu produzieren. Sobald der Körper das Antigen erkennt, werden Immunzellen wie T- und B-Lymphozyten aktiviert, die die Erinnerung des Körpers an den Erreger verstärken. Das bedeutet, dass das Immunsystem schneller und effektiver reagieren kann, wenn der Körper später dem eigentlichen Erreger ausgesetzt wird.",
         sources: [
             { source: "Quelle et al, 2015", link: "https://www.google.com" },
@@ -13,7 +13,7 @@ const content = [
     },
     {
         topic: "Antibiotikaresistenz",
-        category: "Naturwissenschaften",
+        category: "Medizin",
         paragraph: "Wenn Bakterien Antibiotika ausgesetzt werden, kann die Mehrheit der Bakterien abgetötet werden, aber einige können aufgrund natürlicher genetischer Variationen überleben. Diese Überlebenden vermehren sich und führen zu einer Population von antibiotikaresistenten Bakterien. Dies ist für die öffentliche Gesundheit besorgniserregend, da Standardantibiotikabehandlungen weniger wirksam werden und stärkere Medikamente oder komplexere Eingriffe erforderlich sind.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -49,7 +49,7 @@ const content = [
     },
     {
         topic: "Kilmawandel und Treibhauseffekt",
-        category: "Naturwissenschaften",
+        category: "Klimawandel",
         paragraph: "Der Klimawandel wird in erster Linie durch den Treibhauseffekt verursacht, bei dem bestimmte Gase in der Atmosphäre die von der Erdoberfläche abgestrahlte Wärme zurückhalten. Menschliche Aktivitäten wie die Verbrennung fossiler Brennstoffe verstärken diesen Effekt, indem sie die Konzentration von Treibhausgasen erhöhen, was zu einem globalen Temperaturanstieg und zu extremen Wetterbedingungen führt.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -61,7 +61,7 @@ const content = [
     },
     {
         topic: "Klimawandel und Temperaturanstieg",
-        category: "Naturwissenschaften",
+        category: "Klimawandel",
         paragraph: "Der auf den Klimawandel zurückzuführende Anstieg der Durchschnittstemperatur auf der Erde ist aus mehreren Gründen problematisch. Er führt zu mehr extremen Wetterereignissen, einem Anstieg des Meeresspiegels und einer Störung der Ökosysteme. Die Hauptursache für diesen Anstieg ist der verstärkte Treibhauseffekt, der durch menschliche Aktivitäten wie die Verbrennung fossiler Brennstoffe und die Abholzung von Wäldern verursacht wird, die die Konzentration von Treibhausgasen erhöhen.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -73,7 +73,7 @@ const content = [
     },
     {
         topic: "Nachhaltige Energie",
-        category: "Technik",
+        category: "Physik & Chemie",
         paragraph: "Nachhaltige Energiequellen wie Sonnen-, Wind- und Wasserkraft wandeln Naturphänomene in Strom um, ohne dabei Treibhausgase auszustoßen. Sonnenkollektoren fangen das Sonnenlicht ein und wandeln es in Elektrizität um, Windturbinen nutzen die Windenergie und Staudämme nutzen die kinetische Energie des fließenden Wassers zur Stromerzeugung.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -85,7 +85,7 @@ const content = [
     },
     {
         topic: "Solaranlagen",
-        category: "Technik",
+        category: "Physik & Chemie",
         paragraph: "Solarkollektoren fangen das Sonnenlicht ein und wandeln es in Wärme um. Sie werden in der Regel in Solaranlagen zur Warmwasserbereitung eingesetzt. Der Kollektor absorbiert die Sonnenstrahlung, wandelt sie in Wärme um und überträgt diese Wärme auf Wasser oder Luft. Dieser Prozess bringt mehrere Vorteile, zum Beispiel die Minimierung der Abhängigkeit von fossilen Brennstoffen und der Treibhausgasemissionen.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -97,7 +97,7 @@ const content = [
     },
     {
         topic: "Zwei-Faktoren-Authentifizierung (2FA)",
-        category: "Technik",
+        category: "IT & Technik",
         paragraph: "Die Zwei-Faktor-Authentifizierung (2FA) erhöht die Sicherheit, indem sie zwei Formen der Verifizierung erfordert, bevor der Zugang gewährt wird. Im Vergleich zur Ein-Faktor-Authentifizierung, bei der in der Regel nur ein Kennwort erforderlich ist, wird bei der 2FA eine zusätzliche Ebene, wie z. B. ein SMS-Code oder ein biometrischer Scan des Gesichts oder eines Fingers, verwendet, wodurch der unbefugte Zugriff erschwert wird.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -109,7 +109,7 @@ const content = [
     },
     {
         topic: "Sichere Passwörter",
-        category: "Technik",
+        category: "IT & Technik",
         paragraph: "Sichere Passwörter sind lang, komplex und enthalten eine Mischung aus Buchstaben, Zahlen und Symbolen. Je länger und komplexer das Passwort, desto schwieriger ist es, sich das Passwort zu merken. Häufig vorkommende Phrasen und Wörter können relativ leicht erraten werden. Die Verwendung von Passwortmanagern und die Zwei-Faktor-Authentifizierung erhöhen die Sicherheit Ihrer Konten.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -121,7 +121,7 @@ const content = [
     },
     {
         topic: "Polymere",
-        category: "Technik",
+        category: "Physik & Chemie",
         paragraph: "Polymere wie Kunststoffe sind lange Molekülketten, die durch einen Prozess namens Polymerisation entstehen. Sie können natürlich oder synthetisch sein und werden in einer breiten Palette von Anwendungen eingesetzt. Die Umweltauswirkungen synthetischer Polymere, insbesondere biologisch nicht abbaubarer Kunststoffe, geben jedoch zunehmend Anlass zur Besorgnis, da sie sich in Ökosystemen aufgrund ihrer langsamen Abbaugeschwindigkeit lange halten und anreichern.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -132,8 +132,8 @@ const content = [
         correctAnswer: 1
     },
     {
-        topic: "Künstliche Intelligenzen",
-        category: "Technik",
+        topic: "Potenziale von Künstlichen Intelligenzen",
+        category: "IT & Technik",
         paragraph: "Systeme der künstlichen Intelligenz imitieren menschliche Intelligenzprozesse durch die Entwicklung und Anwendung von Algorithmen, die in eine dynamische Computerumgebung integriert sind. Sie sind darauf ausgelegt, Aufgaben zu erfüllen, die menschliche Intelligenz erfordern, wie visuelle Wahrnehmung, Spracherkennung, Entscheidungsfindung und Sprachübersetzung. Sie bergen jedoch auch Risiken, wie das Potenzial für Missbrauch, Verzerrungen bei Entscheidungsprozessen und die Verdrängung von Arbeitsplätzen.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },
@@ -145,7 +145,7 @@ const content = [
     },
     {
         topic: "Künstliche Intelligenzen und die Zukunft",
-        category: "Technik",
+        category: "IT & Technik",
         paragraph: "Künstliche Intelligenz könnte unsere Zukunft entscheidend prägen, mit potenziellen Anwendungen in den Bereichen Gesundheit, Verkehr, Bildung und mehr. KI könnte zu Innovationen wie personalisierter Medizin, autonomen Fahrzeugen und fortschrittlichen Bildungsinstrumenten führen. Dies wirft jedoch auch Bedenken hinsichtlich des Datenschutzes, der Sicherheit, der Verdrängung von Arbeitsplätzen und ethischer Überlegungen bei der Entscheidungsfindung durch Künstliche Intelligenzen auf.",
         sources: [
             { source: "Quelle et al, 2015", link: "" },

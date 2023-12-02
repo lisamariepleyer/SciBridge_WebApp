@@ -53,7 +53,7 @@ function QuizPagePlain() {
                     areAnswersCorrect={areAnswersCorrect}
                     setAreAnswersCorrect={setAreAnswersCorrect}
                     contentLength={content.length}
-                    showFeedback={false}
+                    allowFeedback={false}
                     uuid={uuid}
                 />
             </div>

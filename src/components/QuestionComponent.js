@@ -4,7 +4,7 @@ import "../styles/radiooptions.scss";
 import checkQuestion from "../common/checkQuestion";
 import {useNavigate} from "react-router-dom";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, showFeedback, uuid }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, uuid }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -24,16 +24,16 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
         areAnswersCorrect[topicIndex] = correct;
         setAreAnswersCorrect(areAnswersCorrect);
 
-        if(!isSubmitted && showFeedback) {
+        if(!isSubmitted && allowFeedback) {
             setIsSubmitted(true);
         } else {
             setSelectedAnswer(selectedRadioOption);
-            handleContentLength();
+            handleEndOfContent();
             setSelectedRadioOption(null);
         }
     }
 
-    function handleContentLength() {
+    function handleEndOfContent() {
         console.log(topicIndex);
         if (topicIndex === contentLength-1) {
             navigation(

@@ -1,0 +1,16 @@
+@import "../styles/colours";
+
+.default-input {
+  padding: 10px 15px;
+  margin: 20px 20px 10px 0;
+  border: 1px solid $SBdarkgray;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:focus {
+    border-color: $SBdarkgray;
+    box-shadow: 0 0 8px $SBdarkgray;
+    outline: none;
+  }
+}

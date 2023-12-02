@@ -1,3 +1,5 @@
+@import "../styles/inputs";
+
 .InfoComponent {
   padding: 20px;
   display: flex;
@@ -20,5 +22,15 @@
 
   .sources-paragraph {
     margin-top: 20px;
+  }
+
+  .minigame-infobox {
+    padding: 10px 20px;
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px #999;
   }
 }

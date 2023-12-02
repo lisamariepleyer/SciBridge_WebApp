@@ -16,11 +16,10 @@ function QuestionnairePage() {
     const [hasUsedSources, setHasUsedSources] = useState('');
     const [hasUsedGoogle, setHasUsedGoogle] = useState('');
     const [knowledge, setKnowledge] = useState({
-        "Medizin": 1,
-        "Naturwissenschaften": 1,
-        "Klimawandel": 1,
+        "IT & Technik": 1,
         "Physik & Chemie": 1,
-        "IT & Technik": 1
+        "Medizin": 1,
+        "Klimawandel": 1
     });
 
     const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];

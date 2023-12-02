@@ -18,6 +18,7 @@ function HomePage() {
 
     const redirectToQuiz = () => {
         const randomInt = Math.floor(Math.random() * 2);
+        //const randomInt = 1;
 
         const uuid = uuidv4();
         console.log(uuid);

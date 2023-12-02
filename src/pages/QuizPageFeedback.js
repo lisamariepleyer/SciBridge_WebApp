@@ -16,6 +16,7 @@ function QuizPageFeedback() {
     let [topicIndex, setTopicIndex] = useState(0);
     let [submittedAnswer, setSubmittedAnswer] = useState(null);
     let [checkedSources, setCheckedSources] = useState(false);
+    let [checkedMinigame, setCheckedMinigame] = useState(false);
     let [areAnswersCorrect, setAreAnswersCorrect] = useState(new Array(content.length).fill(null));
 
     const getSubmittedAnswer = () => {
@@ -30,6 +31,10 @@ function QuizPageFeedback() {
         return checkedSources;
     };
 
+    const getCheckedMinigame = () => {
+        return checkedMinigame;
+    };
+
     return (
         <div className="container">
             <div className="InfoSide">
@@ -41,6 +46,10 @@ function QuizPageFeedback() {
                     topicSources={content[topicIndex].sources}
                     checkedSources={checkedSources}
                     setCheckedSources={setCheckedSources}
+                    allowMinigame={true}
+                    minigame={content[topicIndex].minigame}
+                    checkedMinigame={checkedMinigame}
+                    setCheckedMinigame={setCheckedMinigame}
                 />
             </div>
             <div className="QuestionSide">
@@ -55,7 +64,7 @@ function QuizPageFeedback() {
                     areAnswersCorrect={areAnswersCorrect}
                     setAreAnswersCorrect={setAreAnswersCorrect}
                     contentLength={content.length}
-                    showFeedback={true}
+                    allowFeedback={true}
                     uuid={uuid}
                 />
             </div>

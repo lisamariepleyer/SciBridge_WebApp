@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/SciBridge_WebApp/static/css/main.30998c84.css",
-    "main.js": "/SciBridge_WebApp/static/js/main.b4ab3183.js",
+    "main.css": "/SciBridge_WebApp/static/css/main.f85cf9bb.css",
+    "main.js": "/SciBridge_WebApp/static/js/main.980be57a.js",
     "static/js/787.208c67df.chunk.js": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js",
+    "static/media/Treibhauseffekt.jpg": "/SciBridge_WebApp/static/media/Treibhauseffekt.1e121eb37cff58dfb5f3.jpg",
+    "static/media/Solaranlagen.jpg": "/SciBridge_WebApp/static/media/Solaranlagen.254c62badd0ebb967222.jpg",
+    "static/media/Impfungsmechanismus.jpg": "/SciBridge_WebApp/static/media/Impfungsmechanismus.a400831dd3b461e84cb4.jpg",
+    "static/media/twofactorauth.jpg": "/SciBridge_WebApp/static/media/twofactorauth.13eaa0019d0c6f3a235d.jpg",
     "static/media/logo.png": "/SciBridge_WebApp/static/media/logo.dc4ed2650fb7883a5859.png",
     "index.html": "/SciBridge_WebApp/index.html",
-    "main.30998c84.css.map": "/SciBridge_WebApp/static/css/main.30998c84.css.map",
-    "main.b4ab3183.js.map": "/SciBridge_WebApp/static/js/main.b4ab3183.js.map",
+    "main.f85cf9bb.css.map": "/SciBridge_WebApp/static/css/main.f85cf9bb.css.map",
+    "main.980be57a.js.map": "/SciBridge_WebApp/static/js/main.980be57a.js.map",
     "787.208c67df.chunk.js.map": "/SciBridge_WebApp/static/js/787.208c67df.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.30998c84.css",
-    "static/js/main.b4ab3183.js"
+    "static/css/main.f85cf9bb.css",
+    "static/js/main.980be57a.js"
   ]
 }

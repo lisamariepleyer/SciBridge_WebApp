@@ -24,7 +24,7 @@ While this is primarily an academic project, I welcome any feedback, bug reports
 
 The application of my Master's Thesis project is deployed using GitHub pages and accessible to the public. You can experience the application live at:
 
-[SciHub](https://lisamariepleyer.github.io/SciBridge_WebApp/)
+[SciBridge](https://lisamariepleyer.github.io/SciBridge_WebApp/)
 
 If you encounter any issues while accessing the live app, please report them via the repository's issue tracker.
 

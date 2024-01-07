@@ -19,15 +19,40 @@ function HomePage() {
     const redirectToQuiz = () => {
         const randomInt = Math.floor(Math.random() * 2);
         //const randomInt = 1;
-
+        const navigationTarget = randomInt === 0 ? 'plain' : 'feedback'
         const uuid = uuidv4();
         console.log(uuid);
 
-        if (randomInt === 0) {
-            navigation('/plain', { state: { uuid } });
-        } else {
-            navigation('/feedback', { state: { uuid } });
-        }
+        addUUIDtoDB(uuid, navigationTarget);
+        navigation('/' + navigationTarget, { state: { uuid } });
+    };
+
+    const addUUIDtoDB = (uuid, navigationTarget) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                uid: uuid,
+                timestamp: new Date().toISOString(),
+                view: navigationTarget
+            })
+        };
+
+        fetch(process.env.REACT_APP_HOST_URL + "quizstart/", requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data.uid);
+                // TODO: Handle success response
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // TODO: Handle errors here
+            });
     };
 
     const scrollToInfoContainer = () => {

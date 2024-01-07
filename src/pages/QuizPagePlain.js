@@ -15,6 +15,7 @@ function QuizPagePlain() {
     let [topicIndex, setTopicIndex] = useState(0);
     let [submittedAnswer, setSubmittedAnswer] = useState(null);
     let [checkedSources, setCheckedSources] = useState(false);
+    let [checkedMinigame, setCheckedMinigame] = useState(false);
     let [areAnswersCorrect, setAreAnswersCorrect] = useState(new Array(content.length).fill(null));
 
     const getSubmittedAnswer = () => {
@@ -39,6 +40,10 @@ function QuizPagePlain() {
                     topicSources={content[topicIndex].sources}
                     checkedSources={checkedSources}
                     setCheckedSources={setCheckedSources}
+                    allowMinigame={true}
+                    minigame={content[topicIndex].minigame}
+                    checkedMinigame={checkedMinigame}
+                    setCheckedMinigame={setCheckedMinigame}
                 />
             </div>
             <div className="QuestionSide">

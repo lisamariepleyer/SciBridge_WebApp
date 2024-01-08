@@ -80,7 +80,10 @@ function QuizPageFeedback() {
     return (
         <div className="container">
             <div className="InfoSide">
-                <StepperComponent steps={areAnswersCorrect} />
+                <StepperComponent
+                    steps={areAnswersCorrect}
+                    setSteps={setAreAnswersCorrect}
+                />
                 <InfoComponent
                     field={`Frage ${topicIndex + 1}/${content.length}: ${content[topicIndex].category}`}
                     topic={content[topicIndex].topic}

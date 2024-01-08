@@ -1,7 +1,7 @@
 import React from 'react';
 import './StepperComponent.scss';
 
-const StepperComponent = ({ steps }) => {
+const StepperComponent = ({ steps, setSteps }) => {
     return (
         <div className="StepperComponent">
             {steps.map((step, index) => (

@@ -3,7 +3,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import './HomePage.scss';
-import '../styles/buttons.scss'
+import '../styles/sections.scss';
+import '../styles/buttons.scss';
 
 import logo from '../content/logo.png';
 
@@ -99,8 +100,8 @@ function HomePage() {
                 </div>
             </div>
 
-            <div className="info-container" ref={infoContainerRef}>
-                <div className="info-element">
+            <div className="welcome-info-container" ref={infoContainerRef}>
+                <div className="welcome-info-element">
                     <h3>
                         Worum geht es?
                     </h3>
@@ -109,7 +110,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         Warum teilnehmen?
                     </h3>
@@ -118,7 +119,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         Googlen ist erlaubt!
                     </h3>
@@ -127,7 +128,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         Was erwartet dich?
                     </h3>
@@ -137,7 +138,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         Datenschutz-Compliance
                     </h3>
@@ -146,7 +147,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         Dein Beitrag zählt
                     </h3>
@@ -155,7 +156,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <p>
                         Bist du bereit einzutauchen?
                     </p>
@@ -169,8 +170,8 @@ function HomePage() {
                 </button>
             </div>
 
-            <div className="info-container" ref={dataProtectionContainerRef}>
-                <div className="info-element">
+            <div className="welcome-info-container" ref={dataProtectionContainerRef}>
+                <div className="welcome-info-element">
                     <h2>
                         Einwilligung zur anonymen Speicherung von Quiz- und Fragebogenantworten
                     </h2>
@@ -179,7 +180,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         1. Anonymität und Datennutzung:
                     </h3>
@@ -188,7 +189,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         2. Datenspeicherung und -schutz:
                     </h3>
@@ -197,7 +198,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         3. Recht auf Widerruf:
                     </h3>
@@ -206,7 +207,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <h3>
                         4. Kontaktinformationen:
                     </h3>
@@ -215,7 +216,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="info-element">
+                <div className="welcome-info-element">
                     <p>
                         Indem Sie unten auf "Ich stimme zu" klicken, bestätigen Sie, dass Sie diese Informationen gelesen und verstanden haben und der anonymen Speicherung und Verwendung Ihrer Antworten für akademische Forschungszwecke zustimmen.
                     </p>

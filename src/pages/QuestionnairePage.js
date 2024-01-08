@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useLocation} from "react-router";
 import StepperComponent from "../components/StepperComponent";
+import {useNavigate} from 'react-router-dom';
 
 import "../styles/buttons.scss";
 import "../styles/radiooptions.scss";
@@ -8,6 +9,7 @@ import "../styles/radiooptions.scss";
 import "./QuestionnairePage.scss";
 
 function QuestionnairePage() {
+    const navigation = useNavigate();
     const location = useLocation();
     const areAnswersCorrect = location.state.areAnswersCorrect;
     const uuid = location.state.uuid;
@@ -34,6 +36,11 @@ function QuestionnairePage() {
             ...prevState,
             [topic]: value
         }));
+    };
+
+    const redirectToGoodbye = () => {
+        addPersonalDatatoDB();
+        navigation('/goodbye');
     };
 
     const addPersonalDatatoDB = () => {
@@ -160,7 +167,7 @@ function QuestionnairePage() {
                 </div>
 
                 <div className="button-element">
-                    <button className={"comic-button"} onClick={() => addPersonalDatatoDB()}>
+                    <button className={"comic-button"} onClick={() => redirectToGoodbye()}>
                         Ende
                     </button>
                 </div>

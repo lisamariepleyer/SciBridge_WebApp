@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import QuizPagePlain from './pages/QuizPagePlain';
 import QuizPageFeedback from "./pages/QuizPageFeedback";
 import QuestionnairePage from "./pages/QuestionnairePage";
+import EndPage from "./pages/EndPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path='/plain' element={<QuizPagePlain/>} />
                 <Route path='/feedback' element={<QuizPageFeedback/>} />
                 <Route path='/questionnaire' element={<QuestionnairePage/>} />
+                <Route path='/goodbye' element={<EndPage/>} />
             </Routes>
         </div>
     );

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
-import checkQuestion from "../common/checkQuestion";
 import {useNavigate} from "react-router-dom";
 
 const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, hasSubmitted, setHasSubmitted, uuid }) => {
@@ -18,7 +17,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
     }, [ question, answerOptions ]);
 
     function handleAnswerSubmission() {
-        const correct = checkQuestion(selectedRadioOption, answerOptions[correctAnswer]);
+        const correct = checkIsCorrect(selectedRadioOption, answerOptions[correctAnswer]);
         setIsCorrect(correct);
 
         areAnswersCorrect[topicIndex] = correct;
@@ -32,6 +31,10 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
             handleEndOfContent();
             setSelectedRadioOption(null);
         }
+    }
+
+    function checkIsCorrect(selectedAnswer, correctAnswer) {
+        return selectedAnswer === correctAnswer;
     }
 
     function handleEndOfContent() {

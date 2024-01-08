@@ -4,17 +4,17 @@ import "../styles/radiooptions.scss";
 import checkQuestion from "../common/checkQuestion";
 import {useNavigate} from "react-router-dom";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, uuid }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, hasSubmitted, setHasSubmitted, uuid }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showCorrectnessInButton, setShowCorrectnessInButton] = useState(false);
 
     let navigation = useNavigate();
 
     useEffect(() => {
         setSelectedAnswer(null);
         setIsCorrect(null);
-        setIsSubmitted(null);
+        setShowCorrectnessInButton(null);
     }, [ question, answerOptions ]);
 
     function handleAnswerSubmission() {
@@ -24,8 +24,9 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
         areAnswersCorrect[topicIndex] = correct;
         setAreAnswersCorrect(areAnswersCorrect);
 
-        if(!isSubmitted && allowFeedback) {
-            setIsSubmitted(true);
+        if(!showCorrectnessInButton && allowFeedback) {
+            setShowCorrectnessInButton(true);
+            setHasSubmitted(true);
         } else {
             setSelectedAnswer(selectedRadioOption);
             handleEndOfContent();
@@ -34,7 +35,10 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
     }
 
     function handleEndOfContent() {
-        console.log(topicIndex);
+        if(!allowFeedback) {
+            setHasSubmitted(true);
+        }
+
         if (topicIndex === contentLength-1) {
             navigation(
                 '/questionnaire', {
@@ -69,7 +73,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
                         className={`question-submit-button ${isCorrect === true ? 'correct' : isCorrect === false ? 'incorrect' : ''}`}
                         onClick={() => handleAnswerSubmission()}
                     >
-                        {isSubmitted ? (isCorrect ? 'Richtig ' : 'Falsch ') : 'Senden'}
+                        {showCorrectnessInButton ? (isCorrect ? 'Richtig ' : 'Falsch ') : 'Senden'}
                     </button>}
             </div>
         </div>

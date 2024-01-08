@@ -21,7 +21,7 @@ function HomePage() {
         //const randomInt = 1;
         const navigationTarget = randomInt === 0 ? 'plain' : 'feedback'
         const uuid = uuidv4();
-        console.log(uuid);
+        console.log("UUID:", uuid);
 
         addUUIDtoDB(uuid, navigationTarget);
         navigation('/' + navigationTarget, { state: { uuid } });

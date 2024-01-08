@@ -9,17 +9,17 @@ import "./QuestionnairePage.scss";
 
 function QuestionnairePage() {
     const location = useLocation();
-    const areAnswersCorrect = location.state.areAnswersCorrect; //[false, true, false]
+    const areAnswersCorrect = location.state.areAnswersCorrect;
     const uuid = location.state.uuid;
 
     const [ageGroup, setAgeGroup] = useState('');
     const [hasUsedSources, setHasUsedSources] = useState('');
     const [hasUsedGoogle, setHasUsedGoogle] = useState('');
     const [knowledge, setKnowledge] = useState({
-        "IT & Technik": 1,
-        "Physik & Chemie": 1,
-        "Medizin": 1,
-        "Klimawandel": 1
+        "IT & Technik": "1",
+        "Physik & Chemie": "1",
+        "Medizin": "1",
+        "Klimawandel": "1"
     });
 
     const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];
@@ -36,9 +36,38 @@ function QuestionnairePage() {
         }));
     };
 
-    console.log(ageGroup);
-    console.log(hasUsedSources);
-    console.log(hasUsedGoogle);
+    const addPersonalDatatoDB = () => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                uid: uuid,
+                age: ageGroup,
+                hasUsedSources: hasUsedSources,
+                hasUsedGoogle: hasUsedGoogle,
+                level_it: knowledge["IT & Technik"],
+                level_physik_chemistry: knowledge["Physik & Chemie"],
+                level_medicine: knowledge.Medizin,
+                level_climate_change: knowledge.Klimawandel
+            })
+        };
+
+        fetch(process.env.REACT_APP_HOST_URL + "personalinfo/", requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data.uid);
+                // TODO: Handle success response
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // TODO: Handle errors here
+            });
+    };
 
     return (
         <div className="QuestionnairePage">
@@ -131,7 +160,7 @@ function QuestionnairePage() {
                 </div>
 
                 <div className="button-element">
-                    <button className={"comic-button"} onClick={() => console.log({ uuid, ageGroup, knowledge, usedSources: hasUsedSources, googledInfo: hasUsedGoogle })}>
+                    <button className={"comic-button"} onClick={() => addPersonalDatatoDB()}>
                         Ende
                     </button>
                 </div>

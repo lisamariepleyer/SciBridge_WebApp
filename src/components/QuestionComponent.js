@@ -67,6 +67,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
                             value={option}
                             checked={selectedRadioOption === option}
                             onChange={() => setSelectedRadioOption(option)}
+                            disabled={showCorrectnessInButton}
                         />
                         <label htmlFor={`option-${index}`}>{option}</label>
                     </div>

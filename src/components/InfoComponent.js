@@ -14,7 +14,7 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
 
         setCheckedMinigame(false);
         setShowMinigame(false);
-    }, [ field, topic, topicParagraph, topicSources ]);
+    }, [ field, topic, topicParagraph, topicSources, setCheckedSources, setCheckedMinigame ]);
 
     function handleShowSources() {
         setShowSources(!showSources);

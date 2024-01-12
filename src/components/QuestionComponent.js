@@ -14,7 +14,7 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
         setSelectedAnswer(null);
         setIsCorrect(null);
         setShowCorrectnessInButton(null);
-    }, [ question, answerOptions ]);
+    }, [ question, answerOptions, setSelectedAnswer ]);
 
     function handleAnswerSubmission() {
         const correct = checkIsCorrect(selectedRadioOption, answerOptions[correctAnswer]);

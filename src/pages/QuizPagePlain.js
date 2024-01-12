@@ -51,22 +51,6 @@ function QuizPagePlain() {
             });
     };
 
-    const getSubmittedAnswer = () => {
-        return submittedAnswer;
-    };
-
-    const getTopicIndex = () => {
-        return topicIndex;
-    };
-
-    const getCheckedSources = () => {
-        return checkedSources;
-    };
-
-    const getHasSubmitted = () => {
-        return hasSubmitted
-    }
-
     if (hasSubmitted) {
         addQuestionToDB(areAnswersCorrect.at(topicIndex - 1), checkedSources, checkedMinigame);
         setHasSubmitted(false);

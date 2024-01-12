@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import './HomePage.scss';
@@ -11,7 +11,6 @@ import logo from '../content/logo.png';
 function HomePage() {
     const [showQuizButton, setShowQuizButton] = useState(false);
     const [dataProtectionButtonText, setDataProtectionButtonText] = useState("Ich stimme zu");
-    const [uuid, setUuid] = useState(null);
 
     let navigation = useNavigate();
     let infoContainerRef = useRef(null);

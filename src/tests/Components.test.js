@@ -6,7 +6,6 @@ import GuessTheNumberComponent from '../components/GuessTheNumberComponent';
 import StepperComponent from '../components/StepperComponent';
 import InfoComponent from '../components/InfoComponent';
 import QuestionComponent from '../components/QuestionComponent';
-import content from "../content/content";
 
 // TESTS FOR GuessTheWordsComponent
 

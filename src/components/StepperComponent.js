@@ -7,7 +7,7 @@ const StepperComponent = ({ steps, setSteps }) => {
             {steps.map((step, index) => (
                 <React.Fragment key={index}>
                     {index !== 0 && <div className="Line"></div>}
-                    <div className={`Step ${step === null ? 'null' : step ? 'true' : 'false'}`}></div>
+                    <div className={`Step ${step === null ? 'null' : step ? 'true' : 'false'}`} data-testid="step"></div>
                 </React.Fragment>
             ))}
         </div>

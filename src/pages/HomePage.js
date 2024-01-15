@@ -239,6 +239,7 @@ function HomePage() {
                         <button
                             className="comic-button"
                             onClick={() => showStartQuizButton()}
+                            hidden={isLoading}
                         >
                             {dataProtectionButtonText}
                         </button>

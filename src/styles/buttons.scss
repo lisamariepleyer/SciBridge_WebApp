@@ -62,25 +62,9 @@
 
   &.correct {
     background-color: $SBgreen;
-
-    &:after {
-      content: "✓";
-    }
-
-    &:hover:after {
-      content: "✓ ➤";
-    }
   }
 
   &.incorrect {
     background-color: $SBred;
-
-    &:after {
-      content: "✗";
-    }
-
-    &:hover:after {
-      content: "✗ ➤";
-    }
   }
 }

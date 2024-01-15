@@ -86,8 +86,6 @@ function QuizPage() {
                     question={content[topicIndex].question}
                     answerOptions={content[topicIndex].answers}
                     correctAnswer={content[topicIndex].correctAnswer}
-                    selectedAnswer={submittedAnswer}
-                    setSelectedAnswer={setSubmittedAnswer}
                     topicIndex={topicIndex}
                     setTopicIndex={setTopicIndex}
                     areAnswersCorrect={areAnswersCorrect}

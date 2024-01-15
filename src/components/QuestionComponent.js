@@ -3,7 +3,7 @@ import "./QuestionComponent.scss";
 import "../styles/radiooptions.scss";
 import {useNavigate} from "react-router-dom";
 
-const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAnswer, setSelectedAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, hasSubmitted, setHasSubmitted, uuid }) => {
+const QuestionComponent = ({ question, answerOptions, correctAnswer, topicIndex, setTopicIndex, areAnswersCorrect, setAreAnswersCorrect, contentLength, allowFeedback, hasSubmitted, setHasSubmitted, uuid }) => {
     const [selectedRadioOption, setSelectedRadioOption] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
     const [showCorrectnessInButton, setShowCorrectnessInButton] = useState(false);
@@ -11,37 +11,39 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
     let navigation = useNavigate();
 
     useEffect(() => {
-        setSelectedAnswer(null);
+        setSelectedRadioOption(null);
         setIsCorrect(null);
-        setShowCorrectnessInButton(null);
-    }, [ question, answerOptions, setSelectedAnswer ]);
+        setShowCorrectnessInButton(false);
+    }, [ question, answerOptions ]);
 
-    function handleAnswerSubmission() {
+    async function handleAnswerSubmission() {
         const correct = checkIsCorrect(selectedRadioOption, answerOptions[correctAnswer]);
         setIsCorrect(correct);
 
         areAnswersCorrect[topicIndex] = correct;
         setAreAnswersCorrect(areAnswersCorrect);
 
-        if(!showCorrectnessInButton && allowFeedback) {
+        if (allowFeedback) {
             setShowCorrectnessInButton(true);
-            setHasSubmitted(true);
-        } else {
-            setSelectedAnswer(selectedRadioOption);
-            handleEndOfContent();
-            setSelectedRadioOption(null);
         }
+        setHasSubmitted(true);
+
+        if (allowFeedback) {
+            await delay(2000);
+        } else {
+            await delay(0);
+        }
+
+        handleEndOfContent();
     }
 
     function checkIsCorrect(selectedAnswer, correctAnswer) {
         return selectedAnswer === correctAnswer;
     }
 
-    function handleEndOfContent() {
-        if(!allowFeedback) {
-            setHasSubmitted(true);
-        }
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
+    function handleEndOfContent() {
         if (topicIndex === contentLength-1) {
             navigation(
                 '/questionnaire', {
@@ -74,10 +76,21 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, selectedAns
                 ))}
                 {selectedRadioOption &&
                     <button
-                        className={`question-submit-button ${isCorrect === true ? 'correct' : isCorrect === false ? 'incorrect' : ''}`}
+                        className={`question-submit-button ${
+                            showCorrectnessInButton
+                                ? (isCorrect === true
+                                    ? 'correct' 
+                                    : isCorrect === false 
+                                    ? 'incorrect' 
+                                    : '')
+                                : ''}`}
                         onClick={() => handleAnswerSubmission()}
                     >
-                        {showCorrectnessInButton ? (isCorrect ? 'Richtig ' : 'Falsch ') : 'Senden'}
+                        {showCorrectnessInButton
+                            ? (isCorrect
+                                ? 'Richtig ✓'
+                                : 'Falsch ✗')
+                            : 'Senden'}
                     </button>}
             </div>
         </div>

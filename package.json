@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --silent",
+    "test": "react-scripts test --silent --watchAll",
     "eject": "react-scripts eject",
     "serve": "npm run build; npx serve -s build",
     "predeploy": "npm run build",

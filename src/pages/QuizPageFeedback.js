@@ -44,11 +44,9 @@ function QuizPageFeedback() {
             })
             .then(data => {
                 console.log('Success:', data.uid, 'with question', data.question);
-                // TODO: Handle success response
             })
             .catch(error => {
                 console.error('Error: ', error);
-                // TODO: Handle errors here
             });
     };
 

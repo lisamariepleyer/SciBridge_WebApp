@@ -68,11 +68,9 @@ function QuestionnairePage() {
             })
             .then(data => {
                 console.log('Success:', data.uid);
-                // TODO: Handle success response
             })
             .catch(error => {
                 console.error('Error:', error);
-                // TODO: Handle errors here
             });
     };
 

@@ -15,6 +15,7 @@ function EndPage() {
         clipboardCopy(process.env.REACT_APP_URL)
             .then(() => {
                 alert("Link copied to clipboard!");
+                // TODO: throw custom alert
             })
             .catch((error) => {
                 console.error('Could not copy text: ', error);

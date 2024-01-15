@@ -3,13 +3,15 @@ import {useLocation} from "react-router";
 
 import InfoComponent from "../components/InfoComponent";
 import QuestionComponent from "../components/QuestionComponent";
+import StepperComponent from "../components/StepperComponent";
 
 import content from "../content/content";
 
 import "./QuizPage.scss"
 
-function QuizPagePlain() {
+function QuizPage() {
     const location = useLocation();
+    const style = location.state.style;
     const uuid = location.state.uuid;
 
     let [topicIndex, setTopicIndex] = useState(0);
@@ -24,10 +26,10 @@ function QuizPagePlain() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                qui: topicIndex.toString().padStart(2, '0') + "-" + uuid,
+                qui: (topicIndex + 1).toString().padStart(2, '0') + "-" + uuid, // plain: topicIndex
                 uid: uuid,
                 timestamp: new Date().toISOString(),
-                question: topicIndex,
+                question: topicIndex + 1, // plain: topicIndex
                 isCorrect: isCorrect,
                 hasViewedSource: hasViewedSource,
                 hasViewedGame: hasViewedGame
@@ -50,21 +52,30 @@ function QuizPagePlain() {
     };
 
     if (hasSubmitted) {
-        addQuestionToDB(areAnswersCorrect.at(topicIndex - 1), checkedSources, checkedMinigame);
+        addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame); // plain: topicIndex - 1
         setHasSubmitted(false);
     }
 
     return (
         <div className="container">
             <div className="InfoSide">
+                {style === "feedback" &&
+                    <StepperComponent
+                        steps={areAnswersCorrect}
+                        setSteps={setAreAnswersCorrect}
+                    />
+                }
                 <InfoComponent
-                    field={`Frage ${topicIndex + 1}: ${content[topicIndex].category}`}
+                    field={style === "feedback"
+                        ? `Frage ${topicIndex + 1}/${content.length}: ${content[topicIndex].category}`
+                        : `Frage ${topicIndex + 1}: ${content[topicIndex].category}`
+                    }
                     topic={content[topicIndex].topic}
                     topicParagraph={content[topicIndex].paragraph}
                     topicSources={content[topicIndex].sources}
                     checkedSources={checkedSources}
                     setCheckedSources={setCheckedSources}
-                    allowMinigame={false}
+                    allowMinigame={style === "feedback"}
                     minigame={content[topicIndex].minigame}
                     checkedMinigame={checkedMinigame}
                     setCheckedMinigame={setCheckedMinigame}
@@ -82,7 +93,7 @@ function QuizPagePlain() {
                     areAnswersCorrect={areAnswersCorrect}
                     setAreAnswersCorrect={setAreAnswersCorrect}
                     contentLength={content.length}
-                    allowFeedback={false}
+                    allowFeedback={style === "feedback"}
                     hasSubmitted={hasSubmitted}
                     setHasSubmitted={setHasSubmitted}
                     uuid={uuid}
@@ -92,4 +103,4 @@ function QuizPagePlain() {
     );
 }
 
-export default QuizPagePlain;
+export default QuizPage;

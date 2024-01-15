@@ -23,20 +23,30 @@ function HomePage() {
 
         const randomInt = Math.floor(Math.random() * 2);
         //const randomInt = 1;
-        const navigationTarget = randomInt === 0 ? 'plain' : 'feedback'
+        const style = randomInt === 0 ? 'plain' : 'feedback'
         const uuid = uuidv4();
         console.log("UUID:", uuid);
 
-        addUUIDtoDB(uuid, navigationTarget)
+        addUUIDtoDB(uuid, style)
             .then(() => {
-                navigation('/' + navigationTarget, { state: { uuid } });
+                navigation(
+                    '/quiz', {
+                        state: {
+                            style: style,
+                            uuid: uuid
+                        }});
             })
             .catch(error => {
                 console.error('Error:', error);
 
                 if (process.env.REACT_APP_TRACKING_MODE === 'false') {
                     console.log('Not in tracking mode. Starting quiz despite error.')
-                    navigation('/' + navigationTarget, { state: { uuid } });
+                    navigation(
+                        '/quiz', {
+                            state: {
+                                style: style,
+                                uuid: uuid
+                            }});
                 } else {
                     alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
                     // TODO: throw custom alert
@@ -47,14 +57,14 @@ function HomePage() {
             });
     };
 
-    const addUUIDtoDB = (uuid, navigationTarget) => {
+    const addUUIDtoDB = (uuid, style) => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 uid: uuid,
                 timestamp: new Date().toISOString(),
-                view: navigationTarget
+                view: style
             })
         };
 

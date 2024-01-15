@@ -85,12 +85,16 @@ const QuestionComponent = ({ question, answerOptions, correctAnswer, topicIndex,
                                     : '')
                                 : ''}`}
                         onClick={() => handleAnswerSubmission()}
+                        disabled={showCorrectnessInButton}
                     >
                         {showCorrectnessInButton
                             ? (isCorrect
-                                ? 'Richtig ✓'
-                                : 'Falsch ✗')
+                                ? 'Richtig'
+                                : 'Falsch')
                             : 'Senden'}
+
+                        {showCorrectnessInButton &&
+                            <div className="spinner"></div>}
                     </button>}
             </div>
         </div>

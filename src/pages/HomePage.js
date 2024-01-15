@@ -5,26 +5,46 @@ import { v4 as uuidv4 } from 'uuid';
 import './HomePage.scss';
 import '../styles/sections.scss';
 import '../styles/buttons.scss';
+import '../styles/spinner.scss'
 
 import logo from '../content/logo.png';
 
 function HomePage() {
     const [showQuizButton, setShowQuizButton] = useState(false);
     const [dataProtectionButtonText, setDataProtectionButtonText] = useState("Ich stimme zu");
+    const [isLoading, setIsLoading] = useState(false);
 
     let navigation = useNavigate();
     let infoContainerRef = useRef(null);
     let dataProtectionContainerRef = useRef(null);
 
     const redirectToQuiz = () => {
+        setIsLoading(true);
+
         const randomInt = Math.floor(Math.random() * 2);
         //const randomInt = 1;
         const navigationTarget = randomInt === 0 ? 'plain' : 'feedback'
         const uuid = uuidv4();
         console.log("UUID:", uuid);
 
-        addUUIDtoDB(uuid, navigationTarget);
-        navigation('/' + navigationTarget, { state: { uuid } });
+        addUUIDtoDB(uuid, navigationTarget)
+            .then(() => {
+                navigation('/' + navigationTarget, { state: { uuid } });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+
+                if (process.env.REACT_APP_TRACKING_MODE === 'false') {
+                    console.log('Not in tracking mode. Starting quiz despite error.')
+                    navigation('/' + navigationTarget, { state: { uuid } });
+                } else {
+                    alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
+                    // TODO: throw custom alert
+                }
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
     };
 
     const addUUIDtoDB = (uuid, navigationTarget) => {
@@ -38,7 +58,7 @@ function HomePage() {
             })
         };
 
-        fetch(process.env.REACT_APP_HOST_URL + "quizstart/", requestOptions)
+        return fetch(process.env.REACT_APP_HOST_URL + "quizstart/", requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -47,12 +67,7 @@ function HomePage() {
             })
             .then(data => {
                 console.log('Success:', data.uid);
-                // TODO: Handle success response
             })
-            .catch(error => {
-                console.error('Error:', error);
-                // TODO: Handle errors here
-            });
     };
 
     const scrollToInfoContainer = () => {
@@ -231,8 +246,11 @@ function HomePage() {
                             <button
                                 className="comic-button"
                                 onClick={() => redirectToQuiz()}
+                                disabled={isLoading}
                             >
-                                Starte das Quiz
+                                {isLoading
+                                    ? <div className="spinner"></div>
+                                    : 'Starte das Quiz'}
                             </button>
                         )}
                     </div>

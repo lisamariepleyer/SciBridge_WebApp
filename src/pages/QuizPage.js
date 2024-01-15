@@ -15,7 +15,6 @@ function QuizPage() {
     const uuid = location.state.uuid;
 
     let [topicIndex, setTopicIndex] = useState(0);
-    let [submittedAnswer, setSubmittedAnswer] = useState(null);
     let [checkedSources, setCheckedSources] = useState(false);
     let [checkedMinigame, setCheckedMinigame] = useState(false);
     let [areAnswersCorrect, setAreAnswersCorrect] = useState(new Array(content.length).fill(null));
@@ -26,10 +25,10 @@ function QuizPage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                qui: (topicIndex + 1).toString().padStart(2, '0') + "-" + uuid, // plain: topicIndex
+                qui: (topicIndex + 1).toString().padStart(2, '0') + "-" + uuid,
                 uid: uuid,
                 timestamp: new Date().toISOString(),
-                question: topicIndex + 1, // plain: topicIndex
+                question: topicIndex + 1,
                 isCorrect: isCorrect,
                 hasViewedSource: hasViewedSource,
                 hasViewedGame: hasViewedGame
@@ -52,7 +51,7 @@ function QuizPage() {
     };
 
     if (hasSubmitted) {
-        addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame); // plain: topicIndex - 1
+        addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame);
         setHasSubmitted(false);
     }
 

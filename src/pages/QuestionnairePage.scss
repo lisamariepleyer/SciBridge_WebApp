@@ -23,6 +23,10 @@
   border-radius: 10px;
   border: 2px solid black;
   box-shadow: 10px 10px 10px #999;
+
+  @media (max-width: 768px) {
+    max-width: 70%;
+  }
 }
 
 .knowledge-slider-element {

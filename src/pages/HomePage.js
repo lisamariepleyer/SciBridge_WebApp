@@ -244,27 +244,30 @@ function HomePage() {
                     <p>
                         Indem Sie unten auf "Ich stimme zu" klicken, bestätigen Sie, dass Sie diese Informationen gelesen und verstanden haben und der anonymen Speicherung und Verwendung Ihrer Antworten für akademische Forschungszwecke zustimmen.
                     </p>
+                </div>
 
-                    <div className="button-container">
+                <div className="button-container">
+                    <button
+                        className={`comic-button ${
+                            showQuizButton
+                                ? 'discard'
+                                : ''}`}
+                        onClick={() => showStartQuizButton()}
+                        hidden={isLoading}
+                    >
+                        {dataProtectionButtonText}
+                    </button>
+                    {showQuizButton && (
                         <button
                             className="comic-button"
-                            onClick={() => showStartQuizButton()}
-                            hidden={isLoading}
+                            onClick={() => redirectToQuiz()}
+                            disabled={isLoading}
                         >
-                            {dataProtectionButtonText}
+                            {isLoading
+                                ? <div className="spinner"></div>
+                                : 'Starte das Quiz'}
                         </button>
-                        {showQuizButton && (
-                            <button
-                                className="comic-button"
-                                onClick={() => redirectToQuiz()}
-                                disabled={isLoading}
-                            >
-                                {isLoading
-                                    ? <div className="spinner"></div>
-                                    : 'Starte das Quiz'}
-                            </button>
-                        )}
-                    </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -12,9 +12,9 @@ This project aims to empirically test the impact of different presentation forma
 - quiz with user feedback
   - reporting to the user whether a question was answered correctly
   - visually representing quiz statistics
-  - TODO: including visual aids and animations
+  - including visual aids and animations
 - questionnaire to obtain the user's personal info
-- TODO: persist quiz and questionnaire answers
+- persist quiz and questionnaire answers
 
 ## Contributing
 

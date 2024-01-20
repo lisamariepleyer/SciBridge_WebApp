@@ -16,6 +16,7 @@ function QuestionnairePage() {
     const uuid = location.state.uuid;
 
     const [ageGroup, setAgeGroup] = useState('');
+    const [gender, setGender] = useState('');
     const [hasUsedSources, setHasUsedSources] = useState('');
     const [hasUsedGoogle, setHasUsedGoogle] = useState('');
     const [knowledge, setKnowledge] = useState({
@@ -25,7 +26,8 @@ function QuestionnairePage() {
         "Klimawandel": "1"
     });
 
-    const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];
+    const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85', "keine Angabe"];
+    const genders = ["männlich", "weiblich", "nicht-binär", "andere", "keine Angabe"]
     const yesOrNo = ['Ja', 'Nein'];
 
     useEffect(() => {
@@ -75,6 +77,7 @@ function QuestionnairePage() {
             body: JSON.stringify({
                 uid: uuid,
                 age: ageGroup,
+                gender: gender,
                 hasUsedSources: hasUsedSources,
                 hasUsedGoogle: hasUsedGoogle,
                 level_it: knowledge["IT & Technik"],
@@ -109,23 +112,6 @@ function QuestionnairePage() {
             </div>
 
             <div>
-                <div className="questionnaire-element">
-                    <h3>Wie alt bist du?</h3>
-                    {ageGroups.map((option, index) => (
-                        <div className="radio-option" key={index}>
-                            <input
-                                type="radio"
-                                id={`ageOptions-${index}`}
-                                name="ageOptions"
-                                value={option}
-                                checked={ageGroup === option}
-                                onChange={() => setAgeGroup(option)}
-                            />
-                            <label htmlFor={`ageOptions-${index}`}>{option}</label>
-                        </div>
-                    ))}
-                </div>
-
                 <div className="questionnaire-element">
                     <h3>Hast du die angegebenen weiterführenden Links verwendet?</h3>
                     {yesOrNo.map((option, index) => (
@@ -185,6 +171,40 @@ function QuestionnairePage() {
                             <div className="knowledge">
                                 <span>{knowledge[topic]}</span>
                             </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="questionnaire-element">
+                    <h3>Zu welcher Alterskategorie gehörst du?</h3>
+                    {ageGroups.map((option, index) => (
+                        <div className="radio-option" key={index}>
+                            <input
+                                type="radio"
+                                id={`ageOptions-${index}`}
+                                name="ageOptions"
+                                value={option}
+                                checked={ageGroup === option}
+                                onChange={() => setAgeGroup(option)}
+                            />
+                            <label htmlFor={`ageOptions-${index}`}>{option}</label>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="questionnaire-element">
+                    <h3>Welchem Geschlecht fühlst du dich zugehörig?</h3>
+                    {genders.map((option, index) => (
+                        <div className="radio-option" key={index}>
+                            <input
+                                type="radio"
+                                id={`genderOptions-${index}`}
+                                name="genderOptions"
+                                value={option}
+                                checked={gender === option}
+                                onChange={() => setGender(option)}
+                            />
+                            <label htmlFor={`genderOptions-${index}`}>{option}</label>
                         </div>
                     ))}
                 </div>

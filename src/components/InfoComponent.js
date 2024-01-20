@@ -31,20 +31,23 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
             <div className="field">{field}</div>
             <div className="topic">{topic}</div>
             <div className="topic-paragraph">{topicParagraph}</div>
-            <div className="button-container">
+
+            <div className="info-component-button-container">
+                {allowMinigame &&
+                    <button className="default-button"
+                            onClick={() => handleShowMinigame()}
+                    >
+                        Überrasche mich!
+                    </button>
+                }
+
                 <button className="default-button"
                         onClick={() => handleShowSources()}
                 >
                     Weiterführende Informationen
                 </button>
-                {allowMinigame &&
-                    <button className="default-button"
-                            onClick={() => handleShowMinigame()}
-                    >
-                        Minigame
-                    </button>
-                }
             </div>
+
             {showMinigame && allowMinigame &&
                 <div>
                     {minigame.type === "hint" &&
@@ -70,6 +73,7 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
                     }
                 </div>
             }
+
             {showSources &&
                 <div className="sources-paragraph">{
                     topicSources.map((source, index) => (

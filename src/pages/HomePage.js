@@ -49,7 +49,6 @@ function HomePage() {
                             }});
                 } else {
                     alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
-                    // TODO: throw custom alert
                 }
             })
             .finally(() => {

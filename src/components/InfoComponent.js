@@ -74,7 +74,7 @@ const InfoComponent = ({ field, topic, topicParagraph, topicSources, checkedSour
                 <div className="sources-paragraph">{
                     topicSources.map((source, index) => (
                         <li key={source.id || source.source || index}>
-                            <Link to={source.link} target="_blank">{source.source}</Link>
+                            <Link to={source.link} target="_blank" rel="noreferrer">{source.source}</Link>
                         </li>
                     ))}
                 </div>

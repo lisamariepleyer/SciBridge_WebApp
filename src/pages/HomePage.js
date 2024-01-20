@@ -235,7 +235,7 @@ function HomePage() {
                         4. Kontaktinformationen:
                     </h3>
                     <p>
-                        Wenn Sie Fragen zur Handhabung Ihrer Daten oder Ihren Rechten gemäß der DSGVO haben, zögern Sie bitte nicht, mich zu <a href="https://www.linkedin.com/in/lisa-marie-pleyer-643092156/" target="_blank">kontaktieren</a>.
+                        Wenn Sie Fragen zur Handhabung Ihrer Daten oder Ihren Rechten gemäß der DSGVO haben, zögern Sie bitte nicht, mich zu <a href="https://www.linkedin.com/in/lisa-marie-pleyer-643092156/" target="_blank" rel="noreferrer">kontaktieren</a>.
                     </p>
                 </div>
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import './App.css';
 
 import HomePage from './pages/HomePage';
@@ -8,6 +8,15 @@ import QuestionnairePage from "./pages/QuestionnairePage";
 import EndPage from "./pages/EndPage";
 
 function App() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem('refreshing') === 'true') {
+            localStorage.removeItem('refreshing');
+            navigate('/');
+        }
+    }, [navigate]);
+
     return (
         <div className="App">
             <Routes>

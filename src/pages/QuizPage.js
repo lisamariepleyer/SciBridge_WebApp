@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useLocation} from "react-router";
+import {useNavigate} from "react-router-dom";
 
 import InfoComponent from "../components/InfoComponent";
 import QuestionComponent from "../components/QuestionComponent";
@@ -11,6 +12,7 @@ import "./QuizPage.scss"
 
 function QuizPage() {
     const location = useLocation();
+    const navigation = useNavigate()
     const style = location.state.style;
     const uuid = location.state.uuid;
 
@@ -19,6 +21,30 @@ function QuizPage() {
     let [checkedMinigame, setCheckedMinigame] = useState(false);
     let [areAnswersCorrect, setAreAnswersCorrect] = useState(new Array(content.length).fill(null));
     let [hasSubmitted, setHasSubmitted] = useState(false);
+
+    useEffect(() => {
+        // handle back button to exit quiz
+        window.addEventListener('popstate', (e) => {
+            console.log("popstate")
+            navigation("/")
+        })
+
+        // handle refreshing page
+        const handleBeforeUnload = (e) => {
+            const message = "Möchtest du das Quiz wirklich verlassen?";
+            e.preventDefault();
+            e.returnValue = message;
+            localStorage.setItem('refreshing', 'true');
+            return message;
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+            localStorage.removeItem('refreshing');
+        };
+    }, [navigation]);
 
     const addQuestionToDB = (isCorrect, hasViewedSource, hasViewedGame) => {
         const requestOptions = {

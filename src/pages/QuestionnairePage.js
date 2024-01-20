@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router";
-import StepperComponent from "../components/StepperComponent";
 import {useNavigate} from 'react-router-dom';
+
+import StepperComponent from "../components/StepperComponent";
 
 import "../styles/buttons.scss";
 import "../styles/radiooptions.scss";
@@ -9,8 +10,8 @@ import "../styles/radiooptions.scss";
 import "./QuestionnairePage.scss";
 
 function QuestionnairePage() {
-    const navigation = useNavigate();
     const location = useLocation();
+    const navigation = useNavigate();
     const areAnswersCorrect = location.state.areAnswersCorrect;
     const uuid = location.state.uuid;
 
@@ -26,6 +27,30 @@ function QuestionnairePage() {
 
     const ageGroups = ['unter 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65-74', '75-84', 'über 85'];
     const yesOrNo = ['Ja', 'Nein'];
+
+    useEffect(() => {
+        // handle back button to exit quiz
+        window.addEventListener('popstate', (e) => {
+            console.log("popstate")
+            navigation("/")
+        })
+
+        // handle refreshing page
+        const handleBeforeUnload = (e) => {
+            const message = "Möchtest du das Quiz wirklich verlassen?";
+            e.preventDefault();
+            e.returnValue = message;
+            localStorage.setItem('refreshing', 'true');
+            return message;
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+            localStorage.removeItem('refreshing');
+        };
+    }, [navigation]);
 
     function countCorrectAnswers() {
         return areAnswersCorrect.filter(Boolean).length;

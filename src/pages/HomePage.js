@@ -166,7 +166,7 @@ function HomePage() {
                         Datenschutz-Compliance
                     </h3>
                     <p>
-                        Bevor du mit dem Quiz beginnst, wirst du aufgefordert, Datenschutzerklärung zu akzeptieren. Dies soll sicherstellen, dass deine persönlichen Informationen mit größter Sorgfalt und in Übereinstimmung mit den Datenschutzgesetzen behandelt werden. Deine Teilnahme und Daten sind entscheidend für den Erfolg dieses Projekts, und es ist für mich oberste Priorität, deine Privatsphäre zu schützen.
+                        Bevor du mit dem Quiz beginnst, wirst du aufgefordert, die Datenschutzerklärung zu akzeptieren. Dies soll sicherstellen, dass deine persönlichen Informationen mit größter Sorgfalt und in Übereinstimmung mit den Datenschutzgesetzen behandelt werden. Deine Teilnahme und Daten sind entscheidend für den Erfolg dieses Projekts, und es ist für mich oberste Priorität, deine Privatsphäre zu schützen.
                     </p>
                 </div>
 
@@ -199,7 +199,7 @@ function HomePage() {
                         Einwilligung zur anonymen Speicherung von Quiz- und Fragebogenantworten
                     </h2>
                     <p>
-                        Bevor Sie beginnen, möchten wir Sie über die Datenverarbeitungspraktiken dieses Quiz informieren, in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO) der Europäischen Union und den österreichischen Datenschutzgesetzen.
+                        Bevor du beginnst, möchte ich dich über die Datenverarbeitungspraktiken dieses Quiz informieren, in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO) der Europäischen Union und den österreichischen Datenschutzgesetzen.
                     </p>
                 </div>
 
@@ -208,7 +208,7 @@ function HomePage() {
                         1. Anonymität und Datennutzung:
                     </h3>
                     <p>
-                        Ihre Teilnahme an diesem Quiz und dem anschließenden Fragebogen ist vollkommen freiwillig. Indem Sie fortfahren, erklären Sie sich damit einverstanden, dass Ihre Antworten auf die Quizfragen und den Fragebogen, einschließlich Ihres Alters, Ihres Vorwissens und Ihrer Erfahrungen während des Quiz, anonym gespeichert und analysiert werden. Wir versichern Ihnen, dass Ihre Antworten ausschließlich zu akademischen Zwecken verwendet werden, speziell im Zusammenhang mit der Forschung für eine Masterarbeit.
+                        Deine Teilnahme an diesem Quiz und dem anschließenden Fragebogen ist vollkommen freiwillig. Indem du fortfährst, erklärst du dich damit einverstanden, dass deine Antworten auf die Quizfragen und den Fragebogen, einschließlich deines Alters, deiner Geschlechtsidentität, deines Vorwissens und deiner Erfahrungen während des Quiz, anonym gespeichert und analysiert werden. Ich versichere dir, dass deine Antworten ausschließlich zu akademischen Zwecken verwendet werden, speziell im Zusammenhang mit der Forschung für meine Masterarbeit.
                     </p>
                 </div>
 
@@ -217,7 +217,7 @@ function HomePage() {
                         2. Datenspeicherung und -schutz:
                     </h3>
                     <p>
-                        Alle gesammelten Daten werden sicher gespeichert und enthalten keine persönlich identifizierbaren Informationen. Unsere Verfahren zur Datenspeicherung und -verarbeitung sind darauf ausgelegt, höchste Standards an Privatsphäre und Datensicherheit zu wahren, im Einklang mit der DSGVO und den österreichischen Datenschutzvorschriften.
+                        Alle gesammelten Daten werden sicher gespeichert und enthalten keine persönlich identifizierbaren Informationen. Meine Verfahren zur Datenspeicherung und -verarbeitung sind darauf ausgelegt, höchste Standards an Privatsphäre und Datensicherheit zu wahren, im Einklang mit der DSGVO und den österreichischen Datenschutzvorschriften.
                     </p>
                 </div>
 
@@ -226,7 +226,7 @@ function HomePage() {
                         3. Recht auf Widerruf:
                     </h3>
                     <p>
-                        Sie haben das Recht, das Quiz jederzeit ohne negative Konsequenzen zu verlassen. Sollten Sie sich für einen Rückzug entscheiden, werden Ihre bis zu diesem Zeitpunkt gesammelten Daten nicht in der Studie verwendet.
+                        Du hast das Recht, das Quiz jederzeit ohne negative Konsequenzen zu verlassen. Solltest du dich für einen Rückzug entscheiden, bitte ich um <a href="https://www.linkedin.com/in/lisa-marie-pleyer-643092156/" target="_blank" rel="noreferrer">Kontaktaufnahme</a> und ich werde deine bis zu diesem Zeitpunkt gesammelten Daten nicht in der Studie verwenden.
                     </p>
                 </div>
 
@@ -235,13 +235,13 @@ function HomePage() {
                         4. Kontaktinformationen:
                     </h3>
                     <p>
-                        Wenn Sie Fragen zur Handhabung Ihrer Daten oder Ihren Rechten gemäß der DSGVO haben, zögern Sie bitte nicht, mich zu <a href="https://www.linkedin.com/in/lisa-marie-pleyer-643092156/" target="_blank" rel="noreferrer">kontaktieren</a>.
+                        Wenn du Fragen zur Handhabung deiner Daten oder deiner Rechte gemäß der DSGVO hast, zögere bitte nicht, mich zu <a href="https://www.linkedin.com/in/lisa-marie-pleyer-643092156/" target="_blank" rel="noreferrer">kontaktieren</a>.
                     </p>
                 </div>
 
                 <div className="welcome-info-element">
                     <p>
-                        Indem Sie unten auf "Ich stimme zu" klicken, bestätigen Sie, dass Sie diese Informationen gelesen und verstanden haben und der anonymen Speicherung und Verwendung Ihrer Antworten für akademische Forschungszwecke zustimmen.
+                        Indem du unten auf "Ich stimme zu" klickst, bestätigst du, dass du diese Informationen gelesen und verstanden hast und der anonymen Speicherung und Verwendung deiner Antworten für akademische Forschungszwecke zustimmst.
                     </p>
                 </div>
 

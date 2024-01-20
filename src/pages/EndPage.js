@@ -14,10 +14,11 @@ function EndPage() {
     const copyToClipboard = () => {
         clipboardCopy(process.env.REACT_APP_URL)
             .then(() => {
-                alert("Link copied to clipboard!");
+                alert("Link in die Zwischenablage kopiert!");
             })
             .catch((error) => {
                 console.error('Could not copy text: ', error);
+                alert("Link konnte nicht kopiert werden!");
             });
 
         navigation('/');

@@ -69,6 +69,6 @@ test('renders EndPage and handles clipboard button click', () => {
     const buttonElement = screen.getByText(/Link in die Zwischenablage kopieren/i);
     fireEvent.click(buttonElement);
 
-    const alertElement = screen.queryByText(/Link copied to clipboard!/i);
+    const alertElement = screen.queryByText(/Link in die Zwischenablage kopiert!/i);
     expect(alertElement).not.toBeInTheDocument();
 });

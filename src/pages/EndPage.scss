@@ -10,3 +10,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.qrcode {
+  max-width: 300px;
+  height: auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}

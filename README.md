@@ -36,6 +36,7 @@ This project is part of my Master's Thesis for the programme "Software Design an
 ### Inspiration
 - Stepper component design inspired by [devNimi](https://github.com/devNimi/stepper-component)
 - Quiz component design inspired by [Instagram](https://www.instagram.com) Quiz Sticker
+- QR Code generated using [qrcode monkey](https://www.qrcode-monkey.com/de/)
 
 ### Libraries and Tools
 

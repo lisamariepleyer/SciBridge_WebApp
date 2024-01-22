@@ -7,6 +7,7 @@ import '../styles/sections.scss';
 import '../styles/buttons.scss'
 
 import logo from "../content/logo.png";
+import QRcode from "../content/QRcode.png";
 
 function EndPage() {
     const navigation = useNavigate();
@@ -34,6 +35,7 @@ function EndPage() {
                         Ich würde mich freuen, wenn du dieses Quiz teilst.
                     </p>
                 </div>
+
                 <div className="button-container">
                     <button
                         className="comic-button"
@@ -41,6 +43,13 @@ function EndPage() {
                     >
                         Link in die Zwischenablage kopieren
                     </button>
+                </div>
+
+                <div className="welcome-element">
+                    <p>
+                        ... oder lass dein Gegenüber einfach diesen Code scannen!
+                    </p>
+                    <img src={QRcode} className="qrcode" alt="SciBridge QR Code" />
                 </div>
             </div>
         </div>

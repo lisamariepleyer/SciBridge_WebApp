@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 import './HomePage.scss';
 import '../styles/sections.scss';
@@ -57,26 +58,20 @@ function HomePage() {
     };
 
     const addUUIDtoDB = (uuid, style) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        return axios.post(
+            process.env.REACT_APP_GOOGLE_SHEET_URL + 'quizstarts',
+            {
                 uid: uuid,
                 timestamp: new Date().toISOString(),
                 view: style
+            }
+        )
+            .then(function () {
+                console.log("Response OK");
             })
-        };
-
-        return fetch(process.env.REACT_APP_HOST_URL + "quizstart/", requestOptions)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data.uid);
-            })
+            .catch(function () {
+                throw new Error('Network response not OK');
+            });
     };
 
     const scrollToInfoContainer = () => {

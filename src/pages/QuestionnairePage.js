@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router";
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 import StepperComponent from "../components/StepperComponent";
 
@@ -71,34 +72,25 @@ function QuestionnairePage() {
     };
 
     const addPersonalDatatoDB = () => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        return axios.post(
+            process.env.REACT_APP_GOOGLE_SHEET_URL + 'personalinfos',
+            {
                 uid: uuid,
                 age: ageGroup,
                 gender: gender,
                 hasUsedSources: hasUsedSources,
                 hasUsedGoogle: hasUsedGoogle,
                 level_it: knowledge["IT & Technik"],
-                level_physik_chemistry: knowledge["Physik & Chemie"],
+                level_physics_chemistry: knowledge["Physik & Chemie"],
                 level_medicine: knowledge.Medizin,
                 level_climate_change: knowledge.Klimawandel
+            }
+        )
+            .then(function () {
+                console.log("Response OK");
             })
-        };
-
-        fetch(process.env.REACT_APP_HOST_URL + "personalinfo/", requestOptions)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data.uid);
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            .catch(function () {
+                throw new Error('Network response not OK');
             });
     };
 

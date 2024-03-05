@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useLocation} from "react-router";
 import {useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 import InfoComponent from "../components/InfoComponent";
 import QuestionComponent from "../components/QuestionComponent";
@@ -47,10 +48,9 @@ function QuizPage() {
     }, [navigation]);
 
     const addQuestionToDB = (isCorrect, hasViewedSource, hasViewedGame) => {
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+        return axios.post(
+            process.env.REACT_APP_GOOGLE_SHEET_URL + 'questions',
+            {
                 qui: (topicIndex + 1).toString().padStart(2, '0') + "-" + uuid,
                 uid: uuid,
                 timestamp: new Date().toISOString(),
@@ -58,21 +58,13 @@ function QuizPage() {
                 isCorrect: isCorrect,
                 hasViewedSource: hasViewedSource,
                 hasViewedGame: hasViewedGame
+            }
+        )
+            .then(function () {
+                console.log("Response OK");
             })
-        };
-
-        fetch(process.env.REACT_APP_HOST_URL + "question/", requestOptions)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data.uid, 'with question', data.question);
-            })
-            .catch(error => {
-                console.error('Error: ', error);
+            .catch(function () {
+                throw new Error('Network response not OK');
             });
     };
 

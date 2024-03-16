@@ -18,11 +18,13 @@ function EndPage() {
                 alert("Link in die Zwischenablage kopiert!");
             })
             .catch((error) => {
-                console.error('Could not copy text: ', error);
+                console.error('Could not copy link');
+                //console.error('Could not copy text: ', error);
                 alert("Link konnte nicht kopiert werden!");
-            });
-
-        navigation('/');
+            })
+            .finally(() => {
+                navigation('/');
+            })
     }
 
     return (

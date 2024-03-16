@@ -67,8 +67,14 @@ function QuestionnairePage() {
     };
 
     const redirectToGoodbye = () => {
-        addPersonalDatatoDB();
-        navigation('/goodbye');
+        addPersonalDatatoDB()
+            .catch(error => {
+                console.log("Response not OK");
+                //console.error('Error:', error);
+            })
+            .finally(() => {
+                navigation('/goodbye');
+            });
     };
 
     const addPersonalDatatoDB = () => {

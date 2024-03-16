@@ -69,8 +69,19 @@ function QuizPage() {
     };
 
     if (hasSubmitted) {
-        addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame);
-        setHasSubmitted(false);
+        addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame)
+            .catch(error => {
+                if (process.env.REACT_APP_TRACKING_MODE === 'false') {
+                    console.log('Not in tracking mode. Continuing quiz despite error.')
+                } else {
+                    //console.error('Error:', error);
+                    alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
+                    navigation('/');
+                }
+            })
+            .finally(() => {
+                setHasSubmitted(false);
+            })
     }
 
     return (

@@ -26,7 +26,6 @@ function HomePage() {
         //const randomInt = 1;
         const style = randomInt === 0 ? 'plain' : 'feedback'
         const uuid = uuidv4();
-        console.log("UUID:", uuid);
 
         addUUIDtoDB(uuid, style)
             .then(() => {
@@ -38,8 +37,6 @@ function HomePage() {
                         }});
             })
             .catch(error => {
-                console.error('Error:', error);
-
                 if (process.env.REACT_APP_TRACKING_MODE === 'false') {
                     console.log('Not in tracking mode. Starting quiz despite error.')
                     navigation(
@@ -49,6 +46,7 @@ function HomePage() {
                                 uuid: uuid
                             }});
                 } else {
+                    //console.error('Error:', error);
                     alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
                 }
             })

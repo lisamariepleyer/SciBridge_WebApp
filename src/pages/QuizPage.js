@@ -69,6 +69,8 @@ function QuizPage() {
     };
 
     if (hasSubmitted) {
+        setHasSubmitted(false);
+
         addQuestionToDB(areAnswersCorrect.at(topicIndex), checkedSources, checkedMinigame)
             .catch(error => {
                 if (process.env.REACT_APP_TRACKING_MODE === 'false') {
@@ -78,9 +80,6 @@ function QuizPage() {
                     alert("Fehler. Bitte versuche es in ein paar Minuten erneut!");
                     navigation('/');
                 }
-            })
-            .finally(() => {
-                setHasSubmitted(false);
             })
     }
 

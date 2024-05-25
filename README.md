@@ -13,12 +13,9 @@ This project aims to empirically test the impact of different presentation forma
   - reporting to the user whether a question was answered correctly
   - visually representing quiz statistics
   - including visual aids and animations
+  - following additional interface design heuristics
 - questionnaire to obtain the user's personal info
 - persist quiz and questionnaire answers
-
-## Contributing
-
-While this is primarily an academic project, I welcome any feedback, bug reports, or feature requests. Feel free to open an issue or submit a pull request!
 
 ## Deployment
 
